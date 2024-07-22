@@ -1,0 +1,24 @@
+<ul class="item-list">
+  <li *ngFor="let url of urls" class="item">
+    <div class="item-content">
+      <div class="item-info">
+        <span class="item-name">{{ url?.urlName || "Unnamed" }}</span>
+        <span class="item-url">
+          <a [href]="url?.fullUrl || '#'">{{ url?.fullUrl || "No URL" }}</a>
+        </span>
+        <span
+          class="item-health"
+          [ngClass]="{
+            'green-circle': url?.urlHealth === true,
+            'red-circle': url?.urlHealth === false
+          }"
+        ></span>
+      </div>
+      <div class="item-actions">
+        <button class="btn">Edit</button>
+        <button class="btn">Delete</button>
+      </div>
+    </div>
+  </li>
+</ul>
+<button class="btn add-button">Add</button>
