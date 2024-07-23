@@ -16,15 +16,14 @@ export class UrlService {
   //  http://localhost:8080/urls
 
   public getAllUrls(): Observable<Url[]> {
-    return this.http.get<Url[]>(`${this.apiServerUrl}/urls`); // this probably will be just ${this.apiServerUrl}/
+    return this.http.get<Url[]>(`${this.apiServerUrl}`); // this probably will be just ${this.apiServerUrl}/
   }
 
   // getUrl -- it is based by id
   // http://localhost:8080/urls/10
-  public getUrl(urlId: number): Observable<Url> {
-    return this.http.get<Url>(`${this.apiServerUrl}/urls${urlId}`); // this probably will be just ${this.apiServerUrl}/ again
+  getUrlById(id: string): Observable<Url> {
+    return this.http.get<Url>(`${this.apiServerUrl}/${id}`);
   }
-
   // addUrl
   // http://localhost:8080/urls
   // addUrl

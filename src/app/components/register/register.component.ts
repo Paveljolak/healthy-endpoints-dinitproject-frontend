@@ -1,12 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-interface RegisterUserData {
-  username: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+import { RegisterUserData } from '../../interfaces/register-user-data';
 
 @Component({
   selector: 'app-register',
@@ -15,7 +9,16 @@ interface RegisterUserData {
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent {
+export class RegisterComponent implements OnInit {
+  ngOnInit() {
+    const localData = localStorage.getItem('signUpUsers');
+    if (localData != null) {
+      this.signupUsers = JSON.parse(localData);
+    }
+  }
+
+  signupUsers: RegisterUserData[] = [];
+
   registerUserData: RegisterUserData = {
     username: '',
     email: '',
@@ -24,7 +27,13 @@ export class RegisterComponent {
   };
 
   registerUser() {
-    // Handle the registration logic here
-    console.log(this.registerUserData);
+    this.signupUsers.push(this.registerUserData);
+    localStorage.setItem('signUpUsers', JSON.stringify(this.signupUsers));
+    this.registerUserData = {
+      username: '',
+      email: '',
+      password: '',
+      confirmPassword: '',
+    };
   }
 }
