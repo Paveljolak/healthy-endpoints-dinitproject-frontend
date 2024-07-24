@@ -1,0 +1,51 @@
+<div class="modal-overlay">
+  <div class="modal-content">
+    <h2>Add URL</h2>
+    <form [formGroup]="urlForm" (ngSubmit)="onSubmit()" class="url-form">
+      <div class="form-group">
+        <label for="urlName">URL Name:</label>
+        <input
+          id="urlName"
+          formControlName="urlName"
+          type="text"
+          class="form-control"
+        />
+        <div
+          *ngIf="urlForm.get('urlName')?.hasError('required')"
+          class="error-message"
+        >
+          URL Name is required
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fullUrl">Full URL:</label>
+        <input
+          id="fullUrl"
+          formControlName="fullUrl"
+          type="text"
+          class="form-control"
+        />
+        <div
+          *ngIf="urlForm.get('fullUrl')?.hasError('required')"
+          class="error-message"
+        >
+          URL is required
+        </div>
+        <div
+          *ngIf="urlForm.get('fullUrl')?.hasError('pattern')"
+          class="error-message"
+        >
+          URL must start with http:// or https://
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="submit" class="btn btn-primary">Add</button>
+        <button type="button" (click)="onCancel()" class="btn btn-secondary">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

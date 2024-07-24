@@ -21,4 +21,11 @@
     </div>
   </li>
 </ul>
-<button class="btn add-button">Add</button>
+
+<button class="btn add-button" (click)="openAddUrlModal()">Add</button>
+
+<app-add-url-modal
+  *ngIf="showAddUrlModal"
+  (close)="closeAddUrlModal()"
+  (urlAdded)="onUrlAdded()"
+></app-add-url-modal>
