@@ -12,15 +12,15 @@ body {
 
 /* Container Styling */
 .registration-container {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 400px;
   width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #f9f9f9;
 }
 
-/* Form Styling */
 .registration-form {
   display: flex;
   flex-direction: column;
@@ -34,11 +34,23 @@ body {
 
 /* Form Input Styling */
 .registration-form input {
-  margin-bottom: 15px;
+  margin-bottom: 5px; /* Reduced margin */
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 16px;
+}
+
+/* Form Error Message Styling */
+.error-message {
+  color: red;
+  font-size: 0.875em;
+  margin: 0; /* Removed top margin */
+  margin-bottom: 15px;
+}
+
+input.ng-invalid.ng-touched {
+  border-color: red;
 }
 
 /* Button Styling */
@@ -50,6 +62,7 @@ body {
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
+  margin-top: 10px; /* Added margin to separate button from the form */
 }
 
 .registration-form button:hover {

@@ -1,14 +1,9 @@
-<div *ngIf="url; else loading">
-  <h1>{{ url.urlName }}</h1>
-  <p>
-    <strong>URL:</strong>
-    <a [href]="url.fullUrl" target="_blank">{{ url.fullUrl }}</a>
-  </p>
-  <p><strong>Status:</strong> {{ url.urlHealth ? "Healthy" : "Unhealthy" }}</p>
-  <button class="btn">Edit</button>
-  <button class="btn">Delete</button>
+<div *ngIf="url">
+  <h2>URL Details</h2>
+  <p><strong>ID:</strong> {{ url.urlId }}</p>
+  <p><strong>URL Name:</strong> {{ url.urlName }}</p>
+  <p><strong>Full URL:</strong> {{ url.fullUrl }}</p>
 </div>
-
-<ng-template #loading>
+<div *ngIf="!url">
   <p>Loading...</p>
-</ng-template>
+</div>

@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoginUserData } from '../../interfaces/login-user-data';
 import { RegisterUserData } from '../../interfaces/register-user-data';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
   registeredUsers: RegisterUserData[] = [];
@@ -17,9 +19,13 @@ export class LoginComponent implements OnInit {
 
   loginUserData: LoginUserData = {
     username: '',
-    email: '',
     password: '',
   };
+
+  constructor(
+    private authenticationService: AuthenticationService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     const localData = localStorage.getItem('signUpUsers');
@@ -29,26 +35,18 @@ export class LoginComponent implements OnInit {
   }
 
   loginUser() {
-    const isUserExists = this.registeredUsers.find(
-      (user) =>
-        user.username === this.loginUserData.username &&
-        user.password === this.loginUserData.password
-    );
+    this.authenticationService
+      .login(this.loginUserData.username, this.loginUserData.password)
+      .subscribe(
+        (res: any) => {
+          console.log('Login response:', res);
 
-    if (isUserExists) {
-      alert('User Login Successful.');
-      this.loginUserData = {
-        username: '',
-        email: '',
-        password: '',
-      };
-    } else {
-      alert('Wrong credentials.');
-      this.loginUserData = {
-        username: '',
-        email: '',
-        password: '',
-      };
-    }
+          // Already handled in service
+          this.router.navigateByUrl('/urls');
+        },
+        (error) => {
+          console.error('Login error:', error);
+        }
+      );
   }
 }

@@ -1,0 +1,49 @@
+.modal {
+  position: fixed; /* Fixed position */
+  top: 0; /* Top of the page */
+  left: 0; /* Left of the page */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex; /* Flexbox for centering */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  z-index: 1000; /* High z-index */
+}
+
+.modal-content {
+  background: rgb(255, 255, 255); /* White background */
+  padding: 20px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  text-align: center; /* Center text */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  color: rgb(0, 0, 0);
+}
+
+.modal-buttons {
+  margin-top: 20px; /* Space above buttons */
+}
+
+.modal-buttons button {
+  background-color: #4caf50; /* Green color */
+  color: rgb(255, 255, 255); /* White text */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 16px; /* Font size */
+  margin: 0 10px; /* Space between buttons */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.modal-buttons button:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.modal-buttons .cancel-button {
+  background-color: #f44336; /* Red color for cancel */
+}
+
+.modal-buttons .cancel-button:hover {
+  background-color: #e41e26; /* Darker red on hover */
+}

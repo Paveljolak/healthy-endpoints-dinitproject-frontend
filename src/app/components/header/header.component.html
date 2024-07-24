@@ -1,3 +1,33 @@
 <header>
-  <h1>Header</h1>
+  <div class="header-buttons">
+    <button
+      *ngIf="isLoggedIn()"
+      class="logout-button"
+      (click)="openLogoutModal()"
+    >
+      Logout
+    </button>
+    <button
+      *ngIf="!isLoggedIn() && !isLoginPage()"
+      class="login-button"
+      (click)="router.navigateByUrl('/login')"
+    >
+      Login
+    </button>
+    <button
+      *ngIf="!isLoggedIn() && !isRegisterPage()"
+      class="register-button"
+      (click)="router.navigateByUrl('/register')"
+    >
+      Register
+    </button>
+  </div>
+
+  <!-- Modal Component -->
+  <app-logout-confirm-modal
+    *ngIf="showModal"
+    (confirm)="logout()"
+    (cancel)="closeModal()"
+  >
+  </app-logout-confirm-modal>
 </header>
