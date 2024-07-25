@@ -86,10 +86,18 @@ export class UrlService {
   //  "fullUrl": "http://thislinkwillbeundreach/"
   // }
 
-  public editUrl(url: Url, urlId: number): Observable<Url> {
-    return this.http.put<Url>(`${this.apiServerUrl}/urls/${urlId}`, url); // probably ${this.apiServerUrl}/id/edit or some shit depends how it is in backend
+  public editUrl(id: number, url: Partial<Url>): Observable<Url> {
+    return this.http
+      .put<Url>(`${this.apiServerUrl}/${id}`, url, {
+        headers: this.getAuthHeaders(),
+      })
+      .pipe(
+        catchError((error) => {
+          console.error('Error updating URL:', error);
+          return throwError(() => new Error('Failed to update URL'));
+        })
+      );
   }
-
   // deleteUrl -- based on id
   // http://localhost:8080/urls/3
   public deleteUrl(urlId: number): Observable<void> {

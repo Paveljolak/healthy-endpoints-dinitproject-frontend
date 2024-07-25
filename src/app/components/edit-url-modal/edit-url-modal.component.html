@@ -1,0 +1,56 @@
+<!-- edit-url-modal.component.html -->
+<div class="modal">
+  <div class="modal-content">
+    <h2>Edit URL</h2>
+    <form [formGroup]="urlForm" (ngSubmit)="onSubmit()" class="url-form">
+      <div class="form-group">
+        <label for="urlName">URL Name:</label>
+        <input
+          id="urlName"
+          formControlName="urlName"
+          type="text"
+          placeholder="Enter URL name"
+          aria-required="true"
+          [class.invalid]="
+            urlForm.get('urlName')?.invalid && urlForm.get('urlName')?.touched
+          "
+        />
+        <div
+          *ngIf="
+            urlForm.get('urlName')?.invalid && urlForm.get('urlName')?.touched
+          "
+          class="error-message"
+        >
+          URL Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="fullUrl">Full URL:</label>
+        <input
+          id="fullUrl"
+          formControlName="fullUrl"
+          type="text"
+          placeholder="Enter full URL"
+          aria-required="true"
+          [class.invalid]="
+            urlForm.get('fullUrl')?.invalid && urlForm.get('fullUrl')?.touched
+          "
+        />
+        <div
+          *ngIf="
+            urlForm.get('fullUrl')?.invalid && urlForm.get('fullUrl')?.touched
+          "
+          class="error-message"
+        >
+          Enter a valid URL.
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" [disabled]="!urlForm.valid">Save</button>
+        <button type="button" (click)="onCancel()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</div>

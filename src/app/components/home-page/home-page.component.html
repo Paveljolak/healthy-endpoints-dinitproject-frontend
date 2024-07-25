@@ -15,7 +15,7 @@
         ></span>
       </div>
       <div class="item-actions" *ngIf="isLoggedIn">
-        <button class="btn">Edit</button>
+        <button class="btn" (click)="openEditUrlModal(url)">Edit</button>
         <button class="btn" (click)="deleteUrl(url.urlId)">Delete</button>
       </div>
     </div>
@@ -31,3 +31,10 @@
   (close)="closeAddUrlModal()"
   (urlAdded)="onUrlAdded()"
 ></app-add-url-modal>
+
+<app-edit-url-modal
+  *ngIf="showEditUrlModal && currentUrl"
+  [url]="currentUrl"
+  (close)="closeEditUrlModal()"
+  (urlUpdated)="onUrlUpdated($event)"
+></app-edit-url-modal>
