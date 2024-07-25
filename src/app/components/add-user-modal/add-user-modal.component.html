@@ -1,0 +1,25 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal">
+  <h2>Add User</h2>
+  <form (ngSubmit)="addUser()">
+    <label>
+      Username
+      <input type="text" [(ngModel)]="username" name="username" required />
+    </label>
+    <label>
+      Email
+      <input type="email" [(ngModel)]="email" name="email" required />
+    </label>
+    <label>
+      Password
+      <input type="password" [(ngModel)]="password" name="password" required />
+    </label>
+
+    <div class="modal-actions">
+      <button type="submit" class="btn btn-primary">Add User</button>
+      <button type="button" class="btn btn-secondary" (click)="closeModal()">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>

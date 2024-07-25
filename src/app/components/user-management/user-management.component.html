@@ -1,0 +1,42 @@
+<!-- user-management.component.html -->
+<div class="dashboard">
+  <header class="dashboard-header">
+    <h1>User Management</h1>
+    <button class="btn btn-primary" (click)="openAddUserModal()">
+      Add User
+    </button>
+  </header>
+
+  <table class="user-table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Enabled</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.username }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.enabled ? "Yes" : "No" }}</td>
+        <td>
+          <button class="btn btn-edit">Edit</button>
+          <button class="btn btn-delete" (click)="deleteUser(user.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Add User Modal -->
+  <app-add-user-modal
+    *ngIf="showAddUserModal"
+    (close)="closeAddUserModal()"
+    (userAdded)="getAllUsers()"
+  ></app-add-user-modal>
+</div>

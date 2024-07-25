@@ -14,15 +14,17 @@
           }"
         ></span>
       </div>
-      <div class="item-actions">
+      <div class="item-actions" *ngIf="isLoggedIn">
         <button class="btn">Edit</button>
-        <button class="btn">Delete</button>
+        <button class="btn" (click)="deleteUrl(url.urlId)">Delete</button>
       </div>
     </div>
   </li>
 </ul>
 
-<button class="btn add-button" (click)="openAddUrlModal()">Add</button>
+<button class="btn add-button" *ngIf="isLoggedIn" (click)="openAddUrlModal()">
+  Add
+</button>
 
 <app-add-url-modal
   *ngIf="showAddUrlModal"

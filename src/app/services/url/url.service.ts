@@ -14,6 +14,14 @@ export class UrlService {
 
   constructor(private http: HttpClient) {}
 
+  private getAuthHeaders(): HttpHeaders {
+    const authData = sessionStorage.getItem('authdata'); // Base64 credentials from sessionStorage
+
+    return new HttpHeaders({
+      Authorization: authData ? `Basic ${authData}` : '',
+    });
+  }
+
   // getAllUrls
   //  http://localhost:8080/urls
 
@@ -25,27 +33,24 @@ export class UrlService {
   // http://localhost:8080/urls/10
 
   public getUrlById(id: string): Observable<Url> {
-    const authData = sessionStorage.getItem('authdata');
-
-    if (!authData) {
-      return throwError(
-        () => new Error('Authentication data not found in localStorage')
-      );
-    }
-
-    // Set up basic authentication header with the stored auth data
-    const headers = new HttpHeaders({
-      Authorization: `Basic ${authData}`,
-    });
-
-    // Perform the HTTP GET request with the headers
-    return this.http.get<Url>(`${this.apiServerUrl}/${id}`, { headers }).pipe(
-      catchError((error) => {
-        console.error('Error fetching URL:', error);
-        return throwError(() => new Error('Failed to fetch URL'));
+    return this.http
+      .get<Url>(`${this.apiServerUrl}/${id}`, {
+        headers: this.getAuthHeaders(),
       })
-    );
+      .pipe(
+        catchError((error) => {
+          console.error('Error fetching URL:', error);
+          return throwError(() => new Error('Failed to fetch URL'));
+        })
+      );
   }
+
+  // Set up basic authentication header with the stored auth data
+  // const headers = new HttpHeaders({
+  //   Authorization: `Basic ${authData}`,
+  // });
+
+  // Perform the HTTP GET request with the headers
 
   // public getUrlById(id: string): Observable<Url> {
   //  return this.http.get<Url>(`${this.apiServerUrl}/${id}`);
@@ -62,7 +67,16 @@ export class UrlService {
   //  "fullUrl": "https://facebook.com/"
   // }
   public addUrl(url: Url): Observable<Url> {
-    return this.http.post<Url>(`${this.apiServerUrl}/urls`, url); // this probably will be just ${this.apiServerUrl}/ again
+    return this.http
+      .post<Url>(`${this.apiServerUrl}`, url, {
+        headers: this.getAuthHeaders(),
+      })
+      .pipe(
+        catchError((error) => {
+          console.error('Error adding URL:', error);
+          return throwError(() => new Error('Failed to add URL'));
+        })
+      );
   }
 
   // editUrl
@@ -79,7 +93,16 @@ export class UrlService {
   // deleteUrl -- based on id
   // http://localhost:8080/urls/3
   public deleteUrl(urlId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/urls/${urlId}`); // this probably will be just ${this.apiServerUrl}/ again
+    return this.http
+      .delete<void>(`${this.apiServerUrl}/${urlId}`, {
+        headers: this.getAuthHeaders(),
+      })
+      .pipe(
+        catchError((error) => {
+          console.error('Error deleting URL:', error);
+          return throwError(() => new Error('Failed to delete URL'));
+        })
+      );
   }
 
   // deleteAllUrls

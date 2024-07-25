@@ -31,6 +31,8 @@ export class AuthenticationService {
         map((response) => {
           const encodedCredentials = btoa(`${username}:${password}`);
           sessionStorage.setItem('authdata', encodedCredentials);
+          sessionStorage.setItem('id', response.id);
+          sessionStorage.setItem('role', response.role);
           return response;
         })
       );
@@ -54,6 +56,8 @@ export class AuthenticationService {
 
   logout(): void {
     sessionStorage.removeItem('authdata');
+    sessionStorage.removeItem('id');
+    sessionStorage.removeItem('role');
   }
 
   isLoggedIn(): boolean {

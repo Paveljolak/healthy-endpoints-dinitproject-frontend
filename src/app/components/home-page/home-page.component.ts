@@ -4,6 +4,7 @@ import { UrlService } from '../../services/url/url.service';
 import { Url } from '../../interfaces/url';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AddUrlModalComponent } from '../add-url-modal/add-url-modal.component';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
   selector: 'home-page-main',
@@ -15,11 +16,16 @@ import { AddUrlModalComponent } from '../add-url-modal/add-url-modal.component';
 export class HomePageComponent implements OnInit {
   public urls: Url[] = [];
   showAddUrlModal = false;
+  isLoggedIn = false;
 
-  constructor(private urlService: UrlService) {}
+  constructor(
+    private urlService: UrlService,
+    private authService: AuthenticationService
+  ) {}
 
   ngOnInit() {
     this.getAllUrls();
+    this.isLoggedIn = this.authService.isLoggedIn();
   }
 
   openAddUrlModal() {
@@ -44,5 +50,20 @@ export class HomePageComponent implements OnInit {
         console.error('Error fetching URLs:', error.message);
       }
     );
+  }
+
+  deleteUrl(urlId: number): void {
+    if (confirm('Are you sure you want to delete this URL?')) {
+      this.urlService.deleteUrl(urlId).subscribe({
+        next: () => {
+          // Remove the deleted URL from the list
+          this.urls = this.urls.filter((url) => url.urlId !== urlId);
+          console.log('URL deleted successfully');
+        },
+        error: (err) => {
+          console.error('Error deleting URL:', err);
+        },
+      });
+    }
   }
 }
