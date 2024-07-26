@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 import { RegisterUserData } from '../../interfaces/register-user-data';
 import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })

@@ -1,24 +1,52 @@
 <div class="login-container">
   <h1>Login</h1>
-  <form class="login-form">
-    <label for="username">Username:</label>
-    <input
-      [(ngModel)]="loginUserData.username"
-      name="username"
-      type="text"
-      id="username"
-      required
-    />
+  <form
+    class="login-form"
+    #loginForm="ngForm"
+    (ngSubmit)="loginForm.valid && loginUser()"
+  >
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input
+        [(ngModel)]="loginUserData.username"
+        name="username"
+        type="text"
+        id="username"
+        required
+        #username="ngModel"
+        [class.invalid]="
+          username.invalid && (username.dirty || username.touched)
+        "
+      />
+      <div
+        *ngIf="username.invalid && (username.dirty || username.touched)"
+        class="error-message"
+      >
+        Username is required.
+      </div>
+    </div>
 
-    <label for="password">Password:</label>
-    <input
-      [(ngModel)]="loginUserData.password"
-      name="password"
-      type="password"
-      id="password"
-      required
-    />
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input
+        [(ngModel)]="loginUserData.password"
+        name="password"
+        type="password"
+        id="password"
+        required
+        #password="ngModel"
+        [class.invalid]="
+          password.invalid && (password.dirty || password.touched)
+        "
+      />
+      <div
+        *ngIf="password.invalid && (password.dirty || password.touched)"
+        class="error-message"
+      >
+        Password is required.
+      </div>
+    </div>
 
-    <button (click)="loginUser()" type="submit">Login</button>
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
   </form>
 </div>

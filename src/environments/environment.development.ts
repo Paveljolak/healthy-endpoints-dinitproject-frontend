@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080/urls',
-  apiBase: 'http://localhost:8080',
+  apiBaseUrl: 'https://healthyendpoints.azurewebsites.net/urls',
+  apiBase: 'https://healthyendpoints.azurewebsites.net/',
 };

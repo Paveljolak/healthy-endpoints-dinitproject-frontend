@@ -59,4 +59,8 @@ export class HeaderComponent implements OnInit {
   navigateHome() {
     this.router.navigateByUrl('/home'); // Adjust this path as needed
   }
+
+  hasAdmin(): boolean {
+    return this.authenticationService.isAdmin();
+  }
 }

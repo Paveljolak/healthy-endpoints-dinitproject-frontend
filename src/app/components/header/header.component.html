@@ -30,6 +30,14 @@
       >
         Register
       </button>
+
+      <button
+        *ngIf="isLoggedIn() && hasAdmin() && currentUrl != '/users'"
+        class="users-button"
+        (click)="router.navigateByUrl('/users')"
+      >
+        Manage Users
+      </button>
     </div>
   </div>
 

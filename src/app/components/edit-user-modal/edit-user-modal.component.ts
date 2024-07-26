@@ -1,5 +1,3 @@
-// edit-user-modal.component.ts
-
 import {
   Component,
   EventEmitter,
@@ -38,7 +36,7 @@ export class EditUserModalComponent implements OnChanges {
     this.userForm = this.fb.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      role: [''],
+      role: ['', Validators.required], // Ensure role is required
       enabled: [true], // Default to true if not specified
       verificationCode: [''],
     });

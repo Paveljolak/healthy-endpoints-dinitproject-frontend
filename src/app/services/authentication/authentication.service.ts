@@ -63,4 +63,18 @@ export class AuthenticationService {
   isLoggedIn(): boolean {
     return !!sessionStorage.getItem('authdata');
   }
+
+  getRole(): string | null {
+    return sessionStorage.getItem('role');
+  }
+
+  isAdmin(): boolean {
+    const role = this.getRole();
+
+    if (role != null) {
+      sessionStorage.setItem('read role: ', role);
+    }
+
+    return role === 'ADMIN,USER';
+  }
 }
