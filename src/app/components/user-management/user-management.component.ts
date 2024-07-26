@@ -1,19 +1,24 @@
+// user-management.component.ts
+
 import { Component } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
 import { User } from '../../interfaces/user';
 import { CommonModule } from '@angular/common';
+import { EditUserModalComponent } from '../edit-user-modal/edit-user-modal.component';
 import { AddUserModalComponent } from '../add-user-modal/add-user-modal.component';
 
 @Component({
   selector: 'app-user-management',
   standalone: true,
-  imports: [CommonModule, AddUserModalComponent],
+  imports: [CommonModule, AddUserModalComponent, EditUserModalComponent],
   templateUrl: './user-management.component.html',
   styleUrls: ['./user-management.component.css'],
 })
 export class UserManagementComponent {
   users: User[] = [];
   showAddUserModal: boolean = false;
+  showEditUserModal: boolean = false;
+  selectedUser: User | null = null;
 
   constructor(private userService: UserService) {}
 
@@ -53,5 +58,20 @@ export class UserManagementComponent {
 
   closeAddUserModal(): void {
     this.showAddUserModal = false;
+  }
+
+  openEditUserModal(user: User): void {
+    this.selectedUser = user;
+    this.showEditUserModal = true;
+  }
+
+  closeEditUserModal(): void {
+    this.showEditUserModal = false;
+  }
+
+  handleUserUpdated(updatedUser: User): void {
+    // Update the user in the list
+    this.getAllUsers();
+    this.closeEditUserModal();
   }
 }

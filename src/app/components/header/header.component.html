@@ -1,26 +1,36 @@
+<!-- header.component.html -->
 <header>
-  <div class="header-buttons">
-    <button
-      *ngIf="isLoggedIn()"
-      class="logout-button"
-      (click)="openLogoutModal()"
-    >
-      Logout
-    </button>
-    <button
-      *ngIf="!isLoggedIn() && !isLoginPage()"
-      class="login-button"
-      (click)="router.navigateByUrl('/login')"
-    >
-      Login
-    </button>
-    <button
-      *ngIf="!isLoggedIn() && !isRegisterPage()"
-      class="register-button"
-      (click)="router.navigateByUrl('/register')"
-    >
-      Register
-    </button>
+  <div class="header-container">
+    <img
+      class="home-button"
+      src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjl1MHcxM25jZXl3aWhkcnhyaWJoNHBnZzl0OXFqMnZia2hwZXY0biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/l49JZ1oF2qHawdmzm/giphy.webp"
+      alt="Home"
+      (click)="navigateHome()"
+    />
+
+    <div class="header-buttons">
+      <button
+        *ngIf="isLoggedIn()"
+        class="logout-button"
+        (click)="openLogoutModal()"
+      >
+        Logout
+      </button>
+      <button
+        *ngIf="!isLoggedIn() && !isLoginPage()"
+        class="login-button"
+        (click)="router.navigateByUrl('/login')"
+      >
+        Login
+      </button>
+      <button
+        *ngIf="!isLoggedIn() && !isRegisterPage()"
+        class="register-button"
+        (click)="router.navigateByUrl('/register')"
+      >
+        Register
+      </button>
+    </div>
   </div>
 
   <!-- Modal Component -->

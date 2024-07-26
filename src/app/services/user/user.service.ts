@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../../interfaces/user';
 import { environment } from '../../../environments/environment.development';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, map, Observable, switchMap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -83,16 +83,25 @@ export class UserService {
     );
   }
 
-  getUserRole(): Observable<string> {
+  getUserRole(userId: number): Observable<string> {
+    return this.getUserById(userId).pipe(
+      map((user) => user.role),
+      catchError((error) => {
+        console.error('Error fetching user role:', error);
+        return throwError(() => new Error('Failed to fetch user role'));
+      })
+    );
+  }
+
+  editUser(userId: number, userUpdates: Partial<User>): Observable<User> {
     return this.http
-      .get<{ role: string }>(`${this.apiServer}/users/:id`, {
+      .patch<User>(`${this.apiServer}/users/edit/${userId}`, userUpdates, {
         headers: this.getAuthHeaders(),
       })
       .pipe(
-        map((response) => response.role),
         catchError((error) => {
-          console.error('Error fetching user role:', error);
-          return throwError(() => new Error('Failed to fetch user role'));
+          console.error('Error editing user:', error);
+          return throwError(() => new Error('Failed to edit user'));
         })
       );
   }

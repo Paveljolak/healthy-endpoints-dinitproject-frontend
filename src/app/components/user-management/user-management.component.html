@@ -24,7 +24,9 @@
         <td>{{ user.role }}</td>
         <td>{{ user.enabled ? "Yes" : "No" }}</td>
         <td>
-          <button class="btn btn-edit">Edit</button>
+          <button class="btn btn-edit" (click)="openEditUserModal(user)">
+            Edit
+          </button>
           <button class="btn btn-delete" (click)="deleteUser(user.id)">
             Delete
           </button>
@@ -39,4 +41,12 @@
     (close)="closeAddUserModal()"
     (userAdded)="getAllUsers()"
   ></app-add-user-modal>
+
+  <!-- Edit User Modal -->
+  <app-edit-user-modal
+    *ngIf="showEditUserModal && selectedUser"
+    [user]="selectedUser"
+    (close)="closeEditUserModal()"
+    (userUpdated)="handleUserUpdated($event)"
+  ></app-edit-user-modal>
 </div>

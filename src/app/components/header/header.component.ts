@@ -1,3 +1,4 @@
+// header.component.ts
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
@@ -53,5 +54,9 @@ export class HeaderComponent implements OnInit {
 
   isRegisterPage(): boolean {
     return this.currentUrl === '/register';
+  }
+
+  navigateHome() {
+    this.router.navigateByUrl('/home'); // Adjust this path as needed
   }
 }
