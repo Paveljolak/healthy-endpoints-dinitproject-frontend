@@ -6,6 +6,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './services/auth-guard/auth-guard.service';
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { RoleGuard } from './components/role-guard/role-guard.component';
+import { HealthHistoryComponent } from './components/health-history/health-history.component';
 
 export const routeConfig: Routes = [
   {
@@ -42,6 +43,13 @@ export const routeConfig: Routes = [
     component: UserManagementComponent,
     canActivate: [RoleGuard],
     data: { expectedRole: 'ADMIN' }, // Only users with USER role should access this route
+  },
+  {
+    path: 'health-history',
+    component: HealthHistoryComponent,
+    canActivate: [RoleGuard],
+    data: { expectedRole: 'ADMIN' },
+    title: 'Health History Page',
   },
   {
     path: '**',

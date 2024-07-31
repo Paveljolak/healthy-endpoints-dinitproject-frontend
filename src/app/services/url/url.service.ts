@@ -9,7 +9,6 @@ import { environment } from '../../../environments/environment.development';
 })
 export class UrlService {
   public apiServerUrl = environment.apiBaseUrl; // This is the url of the actual server
-
   public apiServer = environment.apiBase;
 
   constructor(private http: HttpClient) {}

@@ -38,6 +38,14 @@
       >
         Manage Users
       </button>
+
+      <button
+        *ngIf="isLoggedIn() && hasAdmin() && currentUrl != '/health-history'"
+        class="health-history-button"
+        (click)="router.navigateByUrl('/health-history')"
+      >
+        Health History
+      </button>
     </div>
   </div>
 

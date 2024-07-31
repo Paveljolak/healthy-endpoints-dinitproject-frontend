@@ -1,0 +1,8 @@
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<ul>
+  <li *ngFor="let history of healthHistories">
+    {{ history.timestamp }}:
+    {{ history.healthStatus ? "Healthy" : "Unhealthy" }}
+  </li>
+</ul>

@@ -59,30 +59,6 @@ export class UserService {
       );
   }
 
-  addUser(username: string, password: string, email: string): Observable<any> {
-    // Log the data being sent to the backend
-    console.log('Sending to backend:', {
-      username,
-      password,
-      email,
-    });
-
-    // Send user data to backend
-    return this.http.post<any>(
-      'http://localhost:8080/auth/register', // Updated URL
-      {
-        username,
-        password,
-        email,
-      },
-      {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-        }),
-      }
-    );
-  }
-
   getUserRole(userId: number): Observable<string> {
     return this.getUserById(userId).pipe(
       map((user) => user.role),

@@ -64,3 +64,4 @@ export class HeaderComponent implements OnInit {
     return this.authenticationService.isAdmin();
   }
 }
+  

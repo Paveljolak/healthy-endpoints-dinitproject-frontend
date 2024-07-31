@@ -6,6 +6,7 @@ import { User } from '../../interfaces/user';
 import { CommonModule } from '@angular/common';
 import { EditUserModalComponent } from '../edit-user-modal/edit-user-modal.component';
 import { AddUserModalComponent } from '../add-user-modal/add-user-modal.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-management',
@@ -20,7 +21,7 @@ export class UserManagementComponent {
   showEditUserModal: boolean = false;
   selectedUser: User | null = null;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.getAllUsers();
@@ -44,6 +45,8 @@ export class UserManagementComponent {
         () => {
           this.users = this.users.filter((user) => user.id !== userId);
           console.log('User deleted successfully');
+          this.router.navigate(['/login']);
+          this.router.navigate(['/users']);
         },
         (error) => {
           console.error('Error deleting user:', error);

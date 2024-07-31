@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../../services/user/user.service';
+import { AuthenticationService } from '../../services/authentication/authentication.service';
 
 @Component({
   selector: 'app-add-user-modal',
@@ -21,7 +22,7 @@ export class AddUserModalComponent {
   role: string = 'User';
   enabled: boolean = true;
 
-  constructor(private userService: UserService) {}
+  constructor(private authService: AuthenticationService) {}
 
   addUser() {
     // Construct role based on selection
@@ -35,14 +36,14 @@ export class AddUserModalComponent {
     });
 
     // Send user data to backend
-    this.userService
-      .addUser(this.username, this.password, this.email)
+    this.authService
+      .register(this.username, this.password, this.email)
       .subscribe(
         (response) => {
           console.log('User added:', response);
           this.userAdded.emit();
           this.closeModal();
-        },
+      },
         (error) => {
           console.error('Error adding user:', error);
         }
