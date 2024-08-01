@@ -4,7 +4,6 @@ footer {
   display: flex;
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
-  padding: 20px; /* Padding around the content */
   height: 100px; /* Adjust height as needed */
 }
 
@@ -15,14 +14,10 @@ footer {
 }
 
 .footer-content {
-  display: flex;
+  display: flex;  
   flex-direction: column;
   align-items: center; /* Center items vertically */
   text-align: center; /* Center text */
-}
-
-.logo-container {
-  margin-bottom: 10px; /* Space between logo and text */
 }
 
 .footer-logo {
@@ -40,11 +35,6 @@ footer {
   font-size: 14px; /* Adjust font size as needed */
   color: #ffffff; /* Text color */
   margin: 2px 0; /* Space between lines of text */
-}
-
-.company-info a {
-  color: #ffffff; /* Link color */
-  text-decoration: none; /* Remove underline */
 }
 
 .company-info a:hover {
