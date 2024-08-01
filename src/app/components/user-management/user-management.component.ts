@@ -1,12 +1,12 @@
 // user-management.component.ts
 
 import { Component } from '@angular/core';
-import { UserService } from '../../services/user/user.service';
 import { User } from '../../interfaces/user';
 import { CommonModule } from '@angular/common';
 import { EditUserModalComponent } from '../edit-user-modal/edit-user-modal.component';
 import { AddUserModalComponent } from '../add-user-modal/add-user-modal.component';
 import { Router } from '@angular/router';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-user-management',

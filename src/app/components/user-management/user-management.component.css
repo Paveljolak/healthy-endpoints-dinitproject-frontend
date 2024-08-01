@@ -1,69 +1,100 @@
-/* user-management.component.css */
-.dashboard {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+/* Styles for table container and scrolling */
+.table-container {
+  width: 100%; /* Full width */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
-.dashboard-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+.header-container {
+  display: flex; /* Flex container to align the button */
+  justify-content: flex-end; /* Align button to the right */
+  padding: 10px 0; /* Space above and below the button */
 }
 
-.dashboard-header h1 {
-  font-size: 24px;
-  margin: 0;
-}
-
-.btn {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  color: #fff;
+.add-button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
+  background-color: #004ea8; /* Match header color */
+  color: #ffffff; /* Text color */
+  padding: 5px 10px; /* Adjust padding for smaller size */
+  display: inline-flex; /* Align icon and text */
+  align-items: center; /* Vertically center the icon and text */
+  border: none;
+  font-weight: bold;
 }
 
-.btn-primary {
-  background-color: #007bff;
+.add-button:hover {
+  background-color: #1182cf; /* Slightly darker shade on hover */
 }
 
-.btn-edit {
-  background-color: #ffc107;
+.add-button img {
+  width: 16px; /* Size of the icon */
+  height: 16px;
+  margin-right: 5px; /* Space between icon and text */
 }
 
-.btn-delete {
-  background-color: #dc3545;
+/* Styles for table and buttons */
+.scroll-container {
+  max-height: 850px; /* Adjust based on your layout */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-bottom: 20px; /* Space between container and footer */
+  width: 100%; /* Full width */
 }
 
-.user-table {
-  width: 100%;
-  border-collapse: collapse;
+.url-table {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Ensure borders are merged */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  table-layout: fixed; /* Fixed layout to maintain uniform column widths */
+}
+
+.url-table th,
+.url-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle; /* Align content vertically in the middle */
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  overflow: hidden; /* Hide overflow of content */
+  text-overflow: ellipsis; /* Show ellipsis for clipped content */
+}
+
+.url-table th {
+  background-color: #004ea8; /* Match header color */
+  color: #ffffff; /* Text color */
+  font-weight: bold;
+}
+
+.url-table tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-.user-table th,
-.user-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+.url-table tbody tr:hover {
+  background-color: #e9ecef; /* Highlight on hover */
 }
 
-.user-table th {
-  background-color: #343a40;
-  color: #fff;
+.url-table td a {
+  color: #007bff;
+  text-decoration: none;
 }
 
-.user-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+.url-table td a:hover {
+  text-decoration: underline;
 }
 
-.user-table tr:hover {
-  background-color: #ddd;
+/* Button styling */
+.url-table .btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin: 0 5px; /* Margin between buttons */
 }
 
-.user-table td button {
-  margin-right: 5px;
+.url-table .btn img {
+  width: 24px; /* Size of the icon */
+  height: 24px;
 }

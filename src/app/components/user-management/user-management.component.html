@@ -1,39 +1,41 @@
-<!-- user-management.component.html -->
-<div class="dashboard">
-  <header class="dashboard-header">
-    <h1>User Management</h1>
-    <button class="btn btn-primary" (click)="openAddUserModal()">
+<div class="table-container">
+  <div class="header-container">
+    <button class="btn add-button" (click)="openAddUserModal()">
       Add User
     </button>
-  </header>
+  </div>
 
-  <table class="user-table">
-    <thead>
-      <tr>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Role</th>
-        <th>Enabled</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.username }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.role }}</td>
-        <td>{{ user.enabled ? "Yes" : "No" }}</td>
-        <td>
-          <button class="btn btn-edit" (click)="openEditUserModal(user)">
-            Edit
-          </button>
-          <button class="btn btn-delete" (click)="deleteUser(user.id)">
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- Container for the table with vertical scrolling -->
+  <div class="scroll-container">
+    <table class="url-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Enabled</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.enabled ? "Yes" : "No" }}</td>
+          <td>
+            <button class="btn edit-button" (click)="openEditUserModal(user)">
+              <img src="assets/icons/edit.png" alt="Edit" />
+            </button>
+
+            <button class="btn delete-button" (click)="deleteUser(user.id)">
+              <img src="assets/icons/delete.png" alt="Delete" />
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <!-- Add User Modal -->
   <app-add-user-modal

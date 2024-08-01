@@ -13,9 +13,9 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { UserService } from '../../services/user/user.service';
 import { User } from '../../interfaces/user';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-edit-user-modal',
