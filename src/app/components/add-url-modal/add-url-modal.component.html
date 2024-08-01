@@ -1,3 +1,4 @@
+<!-- add-url-modal.component.html -->
 <div class="modal-overlay">
   <div class="modal-content">
     <h2>Add URL</h2>
@@ -9,6 +10,8 @@
           formControlName="urlName"
           type="text"
           class="form-control"
+          placeholder="Enter URL name"
+          aria-required="true"
         />
         <div
           *ngIf="urlForm.get('urlName')?.hasError('required')"
@@ -25,6 +28,8 @@
           formControlName="fullUrl"
           type="text"
           class="form-control"
+          placeholder="Enter full URL"
+          aria-required="true"
         />
         <div
           *ngIf="urlForm.get('fullUrl')?.hasError('required')"
@@ -41,7 +46,13 @@
       </div>
 
       <div class="modal-actions">
-        <button type="submit" class="btn btn-primary">Add</button>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="!urlForm.valid"
+        >
+          Add
+        </button>
         <button type="button" (click)="onCancel()" class="btn btn-secondary">
           Cancel
         </button>

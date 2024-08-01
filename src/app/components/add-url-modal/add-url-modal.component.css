@@ -1,4 +1,4 @@
-/* Add this CSS to add-url-modal.component.css */
+/* add-url-modal.component.css */
 
 .modal-overlay {
   position: fixed;
@@ -14,13 +14,12 @@
 }
 
 .modal-content {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 90%;
-  max-width: 500px;
+  background: #fff;
+  border: 1px solid #ddd; /* Added border for consistency */
+  width: 400px; /* Same width as edit modal */
+  max-width: 90%;
   padding: 20px;
-  position: relative;
+  box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 h2 {
@@ -40,53 +39,58 @@ h2 {
 
 .form-group label {
   display: block;
-  font-weight: bold;
   margin-bottom: 5px;
+  font-weight: bold;
 }
 
 .form-control {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  padding: 6px; /* Reduced padding for a shorter input field */
+  border: 1px solid #ddd;
+  font-size: 14px; /* Match font size with edit modal */
+  box-sizing: border-box; /* Ensure padding is included in width */
 }
 
 .error-message {
-  color: #d9534f;
-  font-size: 14px;
+  color: #f00;
+  font-size: 12px;
   margin-top: 5px;
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
+  gap: 10px; /* Match gap with edit modal */
   margin-top: 20px;
 }
 
+/* Button styling */
 .btn {
-  padding: 10px 20px;
+  padding: 10px 20px; /* Consistent size with edit modal buttons */
   border: none;
-  border-radius: 4px;
-  font-size: 16px;
+  color: #fff;
+  background-color: #004ea8; /* Set color to match edit modal */
   cursor: pointer;
-  margin-left: 10px;
+  font-size: 14px; /* Consistent font size */
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
+/* Button hover effect */
+.btn:hover {
+  background-color: #1182cf; /* Light blue on hover */
+}
+
+/* Specific button classes */
 .btn-primary {
-  background-color: #007bff;
-  color: white;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #004ea8; /* Ensure primary button has the same color */
 }
 
 .btn-secondary {
-  background-color: #6c757d;
-  color: white;
+  background-color: #004ea8; /* Ensure secondary button matches primary button */
 }
 
+.btn-primary:hover,
 .btn-secondary:hover {
-  background-color: #5a6268;
+  background-color: #1182cf; /* Light blue on hover for both buttons */
 }
