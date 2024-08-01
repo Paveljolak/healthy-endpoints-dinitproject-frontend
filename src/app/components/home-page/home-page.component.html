@@ -10,89 +10,96 @@
     </button>
   </div>
 
-  <table class="url-table">
-    <thead>
-      <tr>
-        <th>Health</th>
-        <th>Name</th>
-        <th>Full URL</th>
-        <th>Last Checked</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let url of urls">
-        <td>
-          <span
-            [ngClass]="{
-              'green-circle': url?.urlHealth === true,
-              'red-circle': url?.urlHealth === false
-            }"
-          ></span>
-        </td>
-        <td>{{ url?.urlName || "Unnamed" }}</td>
-        <td>
-          <a [href]="url?.fullUrl || '#'">{{ url?.fullUrl || "No URL" }}</a>
-        </td>
-        <td>{{ formatDate(url?.lastChecked) }}</td>
-        <td>
-          <ng-container *ngIf="isLoggedIn">
-            <button
-              class="btn details-button"
-              [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
-              (click)="canPerformAction(url) ? viewUrlDetails(url.urlId) : null"
-              [attr.title]="
-                canPerformAction(url)
-                  ? null
-                  : 'You do not have permission to view details.'
-              "
-            >
-              <img src="assets/icons/details.png" alt="Details" />
-            </button>
+  <!-- Container for the table with vertical scrolling -->
+  <div class="scroll-container">
+    <table class="url-table">
+      <thead>
+        <tr>
+          <th>Status</th>
+          <th>Name</th>
+          <th>Full URL</th>
+          <th>Last Checked</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let url of urls">
+          <td>
+            <span
+              [ngClass]="{
+                'green-circle': url?.urlHealth === true,
+                'red-circle': url?.urlHealth === false
+              }"
+            ></span>
+          </td>
+          <td>{{ url?.urlName || "Unnamed" }}</td>
+          <td>
+            <a [href]="url?.fullUrl || '#'">{{ url?.fullUrl || "No URL" }}</a>
+          </td>
+          <td>{{ url?.lastChecked | date : "yyyy-MM-dd HH:mm" }}</td>
+          <td>
+            <ng-container *ngIf="isLoggedIn">
+              <button
+                class="btn details-button"
+                [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
+                (click)="
+                  canPerformAction(url) ? viewUrlDetails(url.urlId) : null
+                "
+                [attr.title]="
+                  canPerformAction(url)
+                    ? null
+                    : 'You do not have permission to view details.'
+                "
+              >
+                <img src="assets/icons/details.png" alt="Details" />
+              </button>
 
-            <button
-              class="btn history-button"
-              [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
-              (click)="canPerformAction(url) ? viewUrlHistory(url.urlId) : null"
-              [attr.title]="
-                canPerformAction(url)
-                  ? null
-                  : 'You do not have permission to view history.'
-              "
-            >
-              <img src="assets/icons/history.png" alt="View History" />
-            </button>
+              <button
+                class="btn history-button"
+                [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
+                (click)="
+                  canPerformAction(url) ? viewUrlHistory(url.urlId) : null
+                "
+                [attr.title]="
+                  canPerformAction(url)
+                    ? null
+                    : 'You do not have permission to view history.'
+                "
+              >
+                <img src="assets/icons/history.png" alt="View History" />
+              </button>
 
-            <button
-              class="btn edit-button"
-              [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
-              (click)="canPerformAction(url) ? openEditUrlModal(url) : null"
-              [attr.title]="
-                canPerformAction(url)
-                  ? null
-                  : 'You do not have permission to edit this URL.'
-              "
-            >
-              <img src="assets/icons/edit.png" alt="Edit" />
-            </button>
+              <button
+                class="btn edit-button"
+                [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
+                (click)="canPerformAction(url) ? openEditUrlModal(url) : null"
+                [attr.title]="
+                  canPerformAction(url)
+                    ? null
+                    : 'You do not have permission to edit this URL.'
+                "
+              >
+                <img src="assets/icons/edit.png" alt="Edit" />
+              </button>
 
-            <button
-              class="btn delete-button"
-              [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
-              (click)="canPerformAction(url) ? deleteUrl(url.urlId) : null"
-              [attr.title]="
-                canPerformAction(url)
-                  ? null
-                  : 'You do not have permission to delete this URL.'
-              "
-            >
-              <img src="assets/icons/delete.png" alt="Delete" />
-            </button>
-          </ng-container>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+              <button
+                class="btn delete-button"
+                [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
+                (click)="canPerformAction(url) ? deleteUrl(url.urlId) : null"
+                [attr.title]="
+                  canPerformAction(url)
+                    ? null
+                    : 'You do not have permission to delete this URL.'
+                "
+              >
+                <img src="assets/icons/delete.png" alt="Delete" />
+              </button>
+            </ng-container>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <app-add-url-modal
     *ngIf="showAddUrlModal"

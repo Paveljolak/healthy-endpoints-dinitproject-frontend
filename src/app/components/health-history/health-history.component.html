@@ -1,8 +1,39 @@
+<!-- health-history.component.html -->
+
 <div *ngIf="error" class="error">{{ error }}</div>
 
-<ul>
-  <li *ngFor="let history of healthHistories">
-    {{ history.timestamp }}:
-    {{ history.healthStatus ? "Healthy" : "Unhealthy" }}
-  </li>
-</ul>
+<div class="scroll-container">
+  <table class="health-history-table">
+    <thead>
+      <tr>
+        <th>Status</th>
+        <th>URL</th>
+        <th>Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let history of healthHistories">
+        <td>
+          <span
+            [ngClass]="{
+              'healthy-circle': history.healthStatus,
+              'unhealthy-circle': !history.healthStatus
+            }"
+          ></span>
+          {{ history.healthStatus ? "Healthy" : "Unhealthy" }}
+        </td>
+        <td>{{ history.fullUrl }}</td>
+        <td>{{ history.timestamp | date : "yyyy-MM-dd HH:mm" }}</td>
+        <td>
+          <button
+            class="btn delete-button"
+            (click)="deleteHealthHistory(history.id)"
+          >
+            <img src="assets/icons/delete.png" alt="Delete" />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

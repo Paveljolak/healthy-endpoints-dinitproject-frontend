@@ -1,4 +1,4 @@
-/* Ensure the container spans the full width of the viewport */
+/* Container for the table with horizontal scrolling */
 .table-container {
   width: 100%; /* Full width */
   overflow-x: auto; /* Allow horizontal scrolling if needed */
@@ -55,6 +55,14 @@
 /* Optional: Add a border or other styles for better visibility */
 .disabled-button {
   border: 1px solid #ccc; /* Light border for better visibility */
+}
+
+/* Container for the table with vertical scrolling */
+.scroll-container {
+  max-height: 850px; /* Adjust based on your layout */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-bottom: 20px; /* Space between container and footer */
+  width: 100%; /* Full width */
 }
 
 /* Ensure the table spans the full width of the container and has fixed layout */

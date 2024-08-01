@@ -10,7 +10,6 @@
   font-size: 24px; /* Font size for the main heading */
   color: #000000; /* Dark gray color for the text */
   margin: 0 0 10px; /* Space below the heading */
-  font-size: 18px;
 }
 
 .header-container p {
@@ -19,6 +18,7 @@
   margin: 0; /* Remove default margin */
   word-wrap: break-word; /* Ensure long URLs break correctly */
 }
+
 /* Loading and error messages */
 .loading,
 .error {
@@ -37,6 +37,13 @@
   margin: 0; /* Remove margin */
   padding: 0; /* Remove padding */
   box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+/* Container for the table with vertical scrolling */
+.scroll-container {
+  max-height: 800px; /* Adjust height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+  margin-bottom: 20px; /* Space below the table container */
 }
 
 /* Ensure the table spans the full width of the container and has fixed layout */
@@ -81,12 +88,12 @@
 
 .details-table th:nth-child(2),
 .details-table td:nth-child(2) {
-  width: 50%; /* Width for "Date" */
+  width: 75%; /* Width for "Date Checked" */
 }
 
 .details-table th:nth-child(3),
 .details-table td:nth-child(3) {
-  width: 10%; /* Width for "Status" */
+  width: 20%; /* Width for "Actions" */
 }
 
 /* Circle indicators */
