@@ -4,7 +4,7 @@ import { UrlService } from '../../services/url/url.service';
 import { Url } from '../../interfaces/url';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AddUrlModalComponent } from '../add-url-modal/add-url-modal.component';
-import { EditUrlModalComponent } from '../edit-url-modal/edit-url-modal.component'; // Import the new component
+import { EditUrlModalComponent } from '../edit-url-modal/edit-url-modal.component';
 import { AuthenticationService } from '../../services/authentication/authentication.service';
 import { Router } from '@angular/router';
 
@@ -21,6 +21,8 @@ export class HomePageComponent implements OnInit {
   showEditUrlModal = false;
   currentUrl: Url | null = null; // For editing
   isLoggedIn = false;
+  isAdmin = false; // Track if the current user is an admin
+  currentUserId: number | null = null; // Store the current user ID
 
   constructor(
     private urlService: UrlService,
@@ -32,6 +34,18 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.getAllUrls();
     this.isLoggedIn = this.authService.isLoggedIn();
+    this.currentUserId = this.parseUserIdFromSession(); // Retrieve and parse user ID from session storage
+    this.isAdmin = this.checkIfAdmin(); // Determine if the user is an admin
+  }
+
+  private parseUserIdFromSession(): number | null {
+    const idString = sessionStorage.getItem('id');
+    return idString ? parseInt(idString, 10) : null; // Convert string to number
+  }
+
+  private checkIfAdmin(): boolean {
+    const role = sessionStorage.getItem('role'); // Adjust this based on your role management
+    return role === 'ADMIN,USER'; // Assuming 'admin' is the role identifier for admin users
   }
 
   openAddUrlModal() {
@@ -100,5 +114,15 @@ export class HomePageComponent implements OnInit {
 
   formatDate(dateString?: string): string {
     return this.datePipe.transform(dateString || '', 'short') || 'Never';
+  }
+
+  isOwner(url: Url): boolean {
+    return (
+      this.currentUserId !== null && url.addedByUserId === this.currentUserId
+    );
+  }
+
+  canPerformAction(url: Url): boolean {
+    return this.isAdmin || this.isOwner(url);
   }
 }

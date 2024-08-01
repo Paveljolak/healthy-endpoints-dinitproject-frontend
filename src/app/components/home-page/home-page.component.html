@@ -36,34 +36,59 @@
         </td>
         <td>{{ formatDate(url?.lastChecked) }}</td>
         <td>
-          <ng-container *ngIf="isLoggedIn; else notLoggedIn">
-            <!-- Buttons visible when user is logged in -->
+          <ng-container *ngIf="isLoggedIn">
             <button
               class="btn details-button"
-              (click)="viewUrlDetails(url.urlId)"
+              [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
+              (click)="canPerformAction(url) ? viewUrlDetails(url.urlId) : null"
+              [attr.title]="
+                canPerformAction(url)
+                  ? null
+                  : 'You do not have permission to view details.'
+              "
             >
               <img src="assets/icons/details.png" alt="Details" />
             </button>
 
             <button
               class="btn history-button"
-              (click)="viewUrlHistory(url.urlId)"
+              [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
+              (click)="canPerformAction(url) ? viewUrlHistory(url.urlId) : null"
+              [attr.title]="
+                canPerformAction(url)
+                  ? null
+                  : 'You do not have permission to view history.'
+              "
             >
               <img src="assets/icons/history.png" alt="View History" />
             </button>
 
-            <button class="btn edit-button" (click)="openEditUrlModal(url)">
+            <button
+              class="btn edit-button"
+              [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
+              (click)="canPerformAction(url) ? openEditUrlModal(url) : null"
+              [attr.title]="
+                canPerformAction(url)
+                  ? null
+                  : 'You do not have permission to edit this URL.'
+              "
+            >
               <img src="assets/icons/edit.png" alt="Edit" />
             </button>
 
-            <button class="btn delete-button" (click)="deleteUrl(url.urlId)">
+            <button
+              class="btn delete-button"
+              [ngClass]="{ 'disabled-button': !canPerformAction(url) }"
+              (click)="canPerformAction(url) ? deleteUrl(url.urlId) : null"
+              [attr.title]="
+                canPerformAction(url)
+                  ? null
+                  : 'You do not have permission to delete this URL.'
+              "
+            >
               <img src="assets/icons/delete.png" alt="Delete" />
             </button>
           </ng-container>
-
-          <ng-template #notLoggedIn>
-            <span></span>
-          </ng-template>
         </td>
       </tr>
     </tbody>

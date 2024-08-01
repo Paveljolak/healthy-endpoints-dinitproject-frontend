@@ -1,9 +1,64 @@
-<div *ngIf="url">
-  <h2>URL Details</h2>
-  <p><strong>ID:</strong> {{ url.urlId }}</p>
-  <p><strong>URL Name:</strong> {{ url.urlName }}</p>
-  <p><strong>Full URL:</strong> {{ url.fullUrl }}</p>
-</div>
-<div *ngIf="!url">
-  <p>Loading...</p>
+<div class="container">
+  <!-- URL Details Container -->
+  <div class="details-container">
+    <div class="details-section" *ngIf="url">
+      <div class="header-container">
+        <h2>URL Details</h2>
+      </div>
+      <div class="content-container">
+        <div class="details-content">
+          <p><strong>URL Name: </strong> {{ url.urlName }}</p>
+          <p>
+            <strong>Full URL: </strong>
+            <a [href]="url.fullUrl" target="_blank">{{ url.fullUrl }}</a>
+          </p>
+          <p>
+            <strong>Status: </strong>
+            <span
+              [ngClass]="{ healthy: url.urlHealth, unhealthy: !url.urlHealth }"
+              class="status-indicator"
+            ></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- URL History Container -->
+  <div class="history-container">
+    <div class="history-section" *ngIf="historyLogs.length > 0">
+      <div class="header-container">
+        <h2>URL History</h2>
+      </div>
+      <div class="content-container">
+        <div *ngFor="let log of historyLogs" class="history-log">
+          <div class="history-content">
+            <div class="status-wrapper">
+              <span
+                ><strong>Status:</strong>
+                <div
+                  class="status-circle"
+                  [ngClass]="{
+                    'healthy-circle': log.status,
+                    'unhealthy-circle': !log.status
+                  }"
+                ></div>
+              </span>
+            </div>
+            <div class="date-wrapper">
+              <p><strong>Date:</strong> {{ log.date }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="historyLogs.length === 0" class="no-history">
+      <p>No history available.</p>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="!url" class="loading">
+    <p>Loading...</p>
+  </div>
 </div>

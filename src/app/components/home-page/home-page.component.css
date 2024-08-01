@@ -38,6 +38,25 @@
   background-color: #1182cf; /* Slightly darker shade on hover */
 }
 
+/* Styles for disabled buttons */
+.disabled-button {
+  background-color: #d6d6d6; /* Gray background for disabled state */
+  cursor: not-allowed; /* Show a not-allowed cursor */
+}
+
+.disabled-button img {
+  opacity: 0.5; /* Reduce opacity of the image */
+}
+
+.disabled-button:hover {
+  background-color: #bfbfbf; /* Slightly darker gray on hover for disabled state */
+}
+
+/* Optional: Add a border or other styles for better visibility */
+.disabled-button {
+  border: 1px solid #ccc; /* Light border for better visibility */
+}
+
 /* Ensure the table spans the full width of the container and has fixed layout */
 .url-table {
   width: 100%; /* Full width */
