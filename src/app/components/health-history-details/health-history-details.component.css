@@ -1,0 +1,127 @@
+/* Header section styles */
+.header-container {
+  background-color: #eff1f2; /* Light background color for the header */
+  padding: 20px; /* Add padding around the content */
+  margin-bottom: 20px; /* Space below the header */
+  text-align: center; /* Center-align text */
+}
+
+.header-container h1 {
+  font-size: 24px; /* Font size for the main heading */
+  color: #000000; /* Dark gray color for the text */
+  margin: 0 0 10px; /* Space below the heading */
+  font-size: 18px;
+}
+
+.header-container p {
+  font-size: 16px; /* Font size for the paragraph */
+  color: #000000; /* Medium gray color for the text */
+  margin: 0; /* Remove default margin */
+  word-wrap: break-word; /* Ensure long URLs break correctly */
+}
+/* Loading and error messages */
+.loading,
+.error {
+  font-size: 1.2em;
+  text-align: center;
+  margin: 20px;
+}
+
+.error {
+  color: red;
+}
+
+/* Ensure the container spans the full width of the viewport */
+.table-container {
+  width: 100%; /* Full width */
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+/* Ensure the table spans the full width of the container and has fixed layout */
+.details-table {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Ensure borders are merged */
+  background-color: #fff;
+  table-layout: fixed; /* Fixed layout to maintain uniform column widths */
+}
+
+/* Ensure table cells and headers are correctly sized */
+.details-table th,
+.details-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+  vertical-align: middle; /* Align content vertically in the middle */
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+}
+
+/* Header styling */
+.details-table th {
+  background-color: #004ea8; /* Match header color */
+  color: #ffffff; /* Text color */
+  font-weight: bold;
+}
+
+/* Row styling */
+.details-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.details-table tbody tr:hover {
+  background-color: #e9ecef; /* Highlight on hover */
+}
+
+/* Column widths to achieve desired layout */
+.details-table th:nth-child(1),
+.details-table td:nth-child(1) {
+  width: 5%; /* Width for "Status" */
+}
+
+.details-table th:nth-child(2),
+.details-table td:nth-child(2) {
+  width: 50%; /* Width for "Date" */
+}
+
+.details-table th:nth-child(3),
+.details-table td:nth-child(3) {
+  width: 10%; /* Width for "Status" */
+}
+
+/* Circle indicators */
+.green-circle,
+.red-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.green-circle {
+  background-color: green;
+}
+
+.red-circle {
+  background-color: red;
+}
+
+/* Button styling */
+.details-table .btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin: 0 5px; /* Margin between buttons */
+}
+
+.details-table .btn img {
+  width: 24px; /* Slightly larger size for better visibility */
+  height: 24px; /* Maintain aspect ratio */
+}
+
+.details-table .status-cell {
+  text-align: center; /* Center-aligns text and inline elements */
+  vertical-align: middle; /* Center-aligns text vertically in the cell */
+}

@@ -9,6 +9,7 @@ import {
 import { routeConfig } from './app.routes';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { customInterceptor } from './services/interceptor/custom.interceptor';
+import { DatePipe } from '@angular/common';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,5 +17,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withFetch()),
     importProvidersFrom(FormsModule, ReactiveFormsModule),
     { provide: HTTP_INTERCEPTORS, useValue: customInterceptor, multi: true },
+    DatePipe,
   ],
 };

@@ -28,7 +28,7 @@ export class HealthHistoryService {
   // Get health histories by URL ID
   getHealthHistoriesByUrlId(urlId: number): Observable<HealthHistory[]> {
     return this.http
-      .get<HealthHistory[]>(`${this.apiUrl}/url/${urlId}`, {
+      .get<HealthHistory[]>(`${this.apiUrl}/${urlId}`, {
         headers: this.getAuthHeaders(),
       })
       .pipe(
@@ -76,6 +76,22 @@ export class HealthHistoryService {
           );
         })
       );
+  }
+
+  addHealthHistory(urlId: number): Observable<HealthHistory> {
+    return this.http
+      .post<HealthHistory>(`${this.apiUrl}/${urlId}`, null, {
+        headers: this.getAuthHeaders(),
+      })
+      .pipe(catchError(this.handleError<HealthHistory>('addHealthHistory')));
+  }
+
+  deleteHealthHistory(id: number): Observable<void> {
+    return this.http
+      .delete<void>(`${this.apiUrl}/${id}`, {
+        headers: this.getAuthHeaders(), // Add the auth headers here
+      })
+      .pipe(catchError(this.handleError<void>('deleteHealthHistory')));
   }
 
   // Handle HTTP errors

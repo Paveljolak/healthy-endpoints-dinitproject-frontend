@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { UrlService } from '../../services/url/url.service';
 import { Url } from '../../interfaces/url';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AddUrlModalComponent } from '../add-url-modal/add-url-modal.component';
 import { EditUrlModalComponent } from '../edit-url-modal/edit-url-modal.component'; // Import the new component
 import { AuthenticationService } from '../../services/authentication/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'home-page-main',
@@ -23,7 +24,9 @@ export class HomePageComponent implements OnInit {
 
   constructor(
     private urlService: UrlService,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private router: Router,
+    private datePipe: DatePipe
   ) {}
 
   ngOnInit() {
@@ -73,6 +76,14 @@ export class HomePageComponent implements OnInit {
     );
   }
 
+  viewUrlDetails(urlId: number): void {
+    this.router.navigate([`/urls/${urlId}`]); // Navigate to the URL details route
+  }
+
+  viewUrlHistory(urlId: number): void {
+    this.router.navigate([`/health-history/${urlId}`]); // Navigate to health history details route
+  }
+
   deleteUrl(urlId: number): void {
     if (confirm('Are you sure you want to delete this URL?')) {
       this.urlService.deleteUrl(urlId).subscribe({
@@ -85,5 +96,9 @@ export class HomePageComponent implements OnInit {
         },
       });
     }
+  }
+
+  formatDate(dateString?: string): string {
+    return this.datePipe.transform(dateString || '', 'short') || 'Never';
   }
 }

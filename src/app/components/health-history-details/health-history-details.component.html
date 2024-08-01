@@ -1,0 +1,41 @@
+<!-- Header section displaying the URL information -->
+<div class="header-container">
+  <h1>Health History for URL: {{ urlName }}</h1>
+  <p>{{ fullUrl }}</p>
+</div>
+
+<!-- Display a loading message while data is being fetched -->
+<div *ngIf="loading" class="loading">Loading...</div>
+
+<!-- Display an error message if an error occurred -->
+<div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+<!-- Display the health history table if no error and not loading -->
+<table *ngIf="!loading && !errorMessage" class="details-table">
+  <thead>
+    <tr>
+      <th>Status</th>
+      <th>Date Checked</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let history of healthHistories">
+      <td class="status-cell">
+        <span
+          [ngClass]="{
+            'green-circle': history?.healthStatus === true,
+            'red-circle': history?.healthStatus === false
+          }"
+        ></span>
+      </td>
+      <td>{{ formatDate(history?.timestamp || "") }}</td>
+
+      <td>
+        <button class="btn delete-button" (click)="deleteHistory(history.id)">
+          <img src="assets/icons/delete.png" alt="Delete" />
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

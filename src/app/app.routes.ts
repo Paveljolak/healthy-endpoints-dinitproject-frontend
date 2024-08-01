@@ -7,6 +7,7 @@ import { AuthGuard } from './services/auth-guard/auth-guard.service';
 import { UserManagementComponent } from './components/user-management/user-management.component';
 import { RoleGuard } from './components/role-guard/role-guard.component';
 import { HealthHistoryComponent } from './components/health-history/health-history.component';
+import { HealthHistoryDetailsComponent } from './components/health-history-details/health-history-details.component';
 
 export const routeConfig: Routes = [
   {
@@ -50,6 +51,13 @@ export const routeConfig: Routes = [
     canActivate: [RoleGuard],
     data: { expectedRole: 'ADMIN' },
     title: 'Health History Page',
+  },
+  {
+    path: 'health-history/:urlId',
+    component: HealthHistoryDetailsComponent,
+    canActivate: [RoleGuard],
+    data: { expectedRole: 'USER' }, // Adjust the role as needed
+    title: 'Health History Details',
   },
   {
     path: '**',

@@ -25,14 +25,14 @@ header {
 
 .home-button {
   width: auto; /* Adjust as needed */
-  height: 30px; /* Set a fixed height for the logo */
+  height: 25px; /* Set a fixed height for the logo */
   cursor: pointer; /* Pointer cursor on hover */
-  margin-left: 10px; /* Space between image and text */
+  margin-left: 25px; /* Space between image and text */
 }
 
 .header-text {
   font-family: "Eurostile Extended", sans-serif;
-  font-size: 40px; /* Adjust font size as needed */
+  font-size: 35px; /* Adjust font size as needed */
   color: #ffffff; /* Text color */
   margin-left: 2px; /* Space between image and text */
   margin-top: 2px;

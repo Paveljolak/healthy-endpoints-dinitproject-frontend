@@ -1,51 +1,124 @@
-.item-list {
-  list-style: none;
-  padding: 0;
-  width: 100%;
-  max-width: 600px;
+/* Ensure the container spans the full width of the viewport */
+.table-container {
+  width: 100%; /* Full width */
+  overflow-x: auto; /* Allow horizontal scrolling if needed */
+  margin: 0; /* Remove margin */
+  padding: 0; /* Remove padding */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
-.item {
-  background-color: #f9f9f9;
+/* Container for the button above the table */
+.header-container {
+  display: flex; /* Flex container to align the button */
+  justify-content: flex-end; /* Align button to the right */
+  padding: 10px 0; /* Space above and below the button */
+}
+
+/* Add button specific styling */
+.btn.add-button {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  background-color: #004ea8; /* Match header color */
+  color: #ffffff; /* Text color */
+  padding: 5px 10px; /* Adjust padding for smaller size */
+  display: inline-flex; /* Align icon and text */
+  align-items: center; /* Vertically center the icon and text */
+  border: none;
+  font-weight: bold;
+}
+
+/* Icon inside the button */
+.add-button img {
+  width: 16px; /* Smaller size for the icon */
+  height: 16px;
+}
+
+/* Hover effect for the button */
+.add-button:hover {
+  background-color: #1182cf; /* Slightly darker shade on hover */
+}
+
+/* Ensure the table spans the full width of the container and has fixed layout */
+.url-table {
+  width: 100%; /* Full width */
+  border-collapse: collapse; /* Ensure borders are merged */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  table-layout: fixed; /* Fixed layout to maintain uniform column widths */
+}
+
+/* Ensure table cells and headers are correctly sized */
+.url-table th,
+.url-table td {
   border: 1px solid #ddd;
-  margin-bottom: 10px;
   padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  text-align: left;
+  vertical-align: middle; /* Align content vertically in the middle */
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  overflow: hidden; /* Hide overflow of content */
+  text-overflow: ellipsis; /* Show ellipsis for clipped content */
 }
 
-.item-content {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+/* Header styling */
+.url-table th {
+  background-color: #004ea8; /* Match header color */
+  color: #ffffff; /* Text color */
+  font-weight: bold;
 }
 
-.item-info {
-  display: flex;
-  align-items: center;
+/* Row styling */
+.url-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
-.item-name {
-  margin-right: 15px;
+.url-table tbody tr:hover {
+  background-color: #e9ecef; /* Highlight on hover */
 }
 
-.item-url {
-  margin-right: 15px;
-  color: #007bff;
+/* Column widths to achieve desired layout */
+.url-table th:nth-child(1),
+.url-table td:nth-child(1) {
+  width: 5%; /* Adjusted for better fit */
 }
 
-.item-url a {
+.url-table th:nth-child(2),
+.url-table td:nth-child(2) {
+  width: 15%; /* Adjusted for better fit */
+}
+
+.url-table th:nth-child(3),
+.url-table td:nth-child(3) {
+  width: 40%; /* Adjusted for better fit */
+}
+
+.url-table th:nth-child(4),
+.url-table td:nth-child(4) {
+  width: 15%; /* Adjusted for better fit */
+}
+
+.url-table th:nth-child(5),
+.url-table td:nth-child(5) {
+  width: 15%; /* Adjusted for better fit */
+}
+
+/* Link styling */
+.url-table td a {
   color: #007bff;
   text-decoration: none;
 }
 
-.item-health {
-  width: 10px;
-  height: 10px;
+.url-table td a:hover {
+  text-decoration: underline;
+}
+
+/* Circle indicators */
+.green-circle,
+.red-circle {
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   display: inline-block;
-  margin-right: 15px;
+  margin-right: 10px;
 }
 
 .green-circle {
@@ -56,23 +129,16 @@
   background-color: red;
 }
 
-.item-actions {
-  display: flex;
-}
-
-.btn {
-  background-color: #007bff;
+/* Button styling */
+.url-table .btn {
+  background: none;
   border: none;
-  color: white;
-  padding: 5px 10px;
-  margin-left: 5px;
+  padding: 0;
   cursor: pointer;
+  margin: 0 5px; /* Margin between buttons */
 }
 
-.btn:hover {
-  background-color: #0056b3;
-}
-
-.add-button {
-  margin-top: 20px;
+.url-table .btn img {
+  width: 24px; /* Slightly larger size for better visibility */
+  height: 24px; /* Maintain aspect ratio */
 }

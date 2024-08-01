@@ -1,40 +1,84 @@
-<ul class="item-list">
-  <li *ngFor="let url of urls" class="item">
-    <div class="item-content">
-      <div class="item-info">
-        <span class="item-name">{{ url?.urlName || "Unnamed" }}</span>
-        <span class="item-url">
+<!-- Updated homepage component HTML -->
+<div class="table-container">
+  <div class="header-container">
+    <button
+      class="btn add-button"
+      *ngIf="isLoggedIn"
+      (click)="openAddUrlModal()"
+    >
+      Add
+    </button>
+  </div>
+
+  <table class="url-table">
+    <thead>
+      <tr>
+        <th>Health</th>
+        <th>Name</th>
+        <th>Full URL</th>
+        <th>Last Checked</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let url of urls">
+        <td>
+          <span
+            [ngClass]="{
+              'green-circle': url?.urlHealth === true,
+              'red-circle': url?.urlHealth === false
+            }"
+          ></span>
+        </td>
+        <td>{{ url?.urlName || "Unnamed" }}</td>
+        <td>
           <a [href]="url?.fullUrl || '#'">{{ url?.fullUrl || "No URL" }}</a>
-        </span>
-        <span
-          class="item-health"
-          [ngClass]="{
-            'green-circle': url?.urlHealth === true,
-            'red-circle': url?.urlHealth === false
-          }"
-        ></span>
-      </div>
-      <div class="item-actions" *ngIf="isLoggedIn">
-        <button class="btn" (click)="openEditUrlModal(url)">Edit</button>
-        <button class="btn" (click)="deleteUrl(url.urlId)">Delete</button>
-    </div>
-    </div>
-  </li>
-</ul>
+        </td>
+        <td>{{ formatDate(url?.lastChecked) }}</td>
+        <td>
+          <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+            <!-- Buttons visible when user is logged in -->
+            <button
+              class="btn details-button"
+              (click)="viewUrlDetails(url.urlId)"
+            >
+              <img src="assets/icons/details.png" alt="Details" />
+            </button>
 
-<button class="btn add-button" *ngIf="isLoggedIn" (click)="openAddUrlModal()">
-  Add
-</button>
+            <button
+              class="btn history-button"
+              (click)="viewUrlHistory(url.urlId)"
+            >
+              <img src="assets/icons/history.png" alt="View History" />
+            </button>
 
-<app-add-url-modal
-  *ngIf="showAddUrlModal"
-  (close)="closeAddUrlModal()"
-  (urlAdded)="onUrlAdded()"
-></app-add-url-modal>
+            <button class="btn edit-button" (click)="openEditUrlModal(url)">
+              <img src="assets/icons/edit.png" alt="Edit" />
+            </button>
 
-<app-edit-url-modal
-  *ngIf="showEditUrlModal && currentUrl"
-  [url]="currentUrl"
-  (close)="closeEditUrlModal()"
-  (urlUpdated)="onUrlUpdated($event)"
-></app-edit-url-modal>
+            <button class="btn delete-button" (click)="deleteUrl(url.urlId)">
+              <img src="assets/icons/delete.png" alt="Delete" />
+            </button>
+          </ng-container>
+
+          <ng-template #notLoggedIn>
+            <span></span>
+          </ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-add-url-modal
+    *ngIf="showAddUrlModal"
+    (close)="closeAddUrlModal()"
+    (urlAdded)="onUrlAdded()"
+  ></app-add-url-modal>
+
+  <app-edit-url-modal
+    *ngIf="showEditUrlModal && currentUrl"
+    [url]="currentUrl"
+    (close)="closeEditUrlModal()"
+    (urlUpdated)="onUrlUpdated($event)"
+  ></app-edit-url-modal>
+</div>
