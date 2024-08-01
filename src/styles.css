@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "Eurostile Extended";
+  src: url("/public/fonts/eurostile-extended-medium.woff2") format("woff2"),
+    url("/public/fonts/eurostile-extended-medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

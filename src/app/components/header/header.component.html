@@ -1,14 +1,29 @@
 <!-- header.component.html -->
 <header>
   <div class="header-container">
-    <img
-      class="home-button"
-      src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbjl1MHcxM25jZXl3aWhkcnhyaWJoNHBnZzl0OXFqMnZia2hwZXY0biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/l49JZ1oF2qHawdmzm/giphy.webp"
-      alt="Home"
-      (click)="navigateHome()"
-    />
-
+    <div class="logo-container" (click)="navigateHome()">
+      <img class="home-button" src="/assets/logo-white.png" alt="Home" />
+      <div class="header-text">HEALTHY</div>
+    </div>
     <div class="header-buttons">
+      <button
+        *ngIf="isLoggedIn() && hasAdmin()"
+        class="users-button"
+        (click)="router.navigateByUrl('/users')"
+        [ngClass]="{ active: isActive('/users') }"
+      >
+        Manage Users
+      </button>
+
+      <button
+        *ngIf="isLoggedIn() && hasAdmin()"
+        class="health-history-button"
+        (click)="router.navigateByUrl('/health-history')"
+        [ngClass]="{ active: isActive('/health-history') }"
+      >
+        Health History
+      </button>
+
       <button
         *ngIf="isLoggedIn()"
         class="logout-button"
@@ -29,22 +44,6 @@
         (click)="router.navigateByUrl('/register')"
       >
         Register
-      </button>
-
-      <button
-        *ngIf="isLoggedIn() && hasAdmin() && currentUrl != '/users'"
-        class="users-button"
-        (click)="router.navigateByUrl('/users')"
-      >
-        Manage Users
-      </button>
-
-      <button
-        *ngIf="isLoggedIn() && hasAdmin() && currentUrl != '/health-history'"
-        class="health-history-button"
-        (click)="router.navigateByUrl('/health-history')"
-      >
-        Health History
       </button>
     </div>
   </div>

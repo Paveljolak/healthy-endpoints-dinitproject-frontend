@@ -63,5 +63,8 @@ export class HeaderComponent implements OnInit {
   hasAdmin(): boolean {
     return this.authenticationService.isAdmin();
   }
+
+  isActive(path: string): boolean {
+    return this.currentUrl === path;
+  }
 }
-  
