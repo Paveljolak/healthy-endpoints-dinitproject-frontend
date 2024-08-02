@@ -69,6 +69,15 @@ export class UserService {
     );
   }
 
+  getCurrentUser(): Observable<User> {
+    const userId = sessionStorage.getItem('id'); // userId might be null
+    if (userId === null) {
+      return throwError(() => new Error('User ID not found'));
+    }
+    const id = +userId;
+    return this.getUserById(id);
+  }
+
   editUser(userId: number, userUpdates: Partial<User>): Observable<User> {
     return this.http
       .patch<User>(`${this.apiServer}/users/edit/${userId}`, userUpdates, {

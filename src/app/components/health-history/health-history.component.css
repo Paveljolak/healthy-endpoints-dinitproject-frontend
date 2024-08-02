@@ -1,9 +1,10 @@
 /* Container for error message and table */
 .scroll-container {
-  max-height: 900px; /* Adjust based on your layout */
+  max-height: calc(100vh - 230px); /* Adjust based on your layout */
   overflow-y: auto; /* Enable vertical scrolling */
   margin-bottom: 20px; /* Space between container and footer */
   width: 100%; /* Full width */
+  border-bottom: 2px solid #ddd;
 }
 
 /* Ensure the table spans the full width of the container */
@@ -11,7 +12,6 @@
   width: 100%; /* Full width */
   border-collapse: collapse; /* Ensure borders are merged */
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   table-layout: fixed; /* Fixed layout to maintain uniform column widths */
 }
 

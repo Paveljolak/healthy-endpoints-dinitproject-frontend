@@ -59,10 +59,11 @@
 
 /* Container for the table with vertical scrolling */
 .scroll-container {
-  max-height: 850px; /* Adjust based on your layout */
+  max-height: calc(100vh - 286px); /* Adjust based on your layout */
   overflow-y: auto; /* Enable vertical scrolling */
   margin-bottom: 20px; /* Space between container and footer */
   width: 100%; /* Full width */
+  border-bottom: 2px solid #ddd;
 }
 
 /* Ensure the table spans the full width of the container and has fixed layout */
