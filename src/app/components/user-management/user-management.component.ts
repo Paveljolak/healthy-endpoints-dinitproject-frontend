@@ -30,7 +30,7 @@ export class UserManagementComponent {
   getAllUsers(): void {
     this.userService.getAllUsers().subscribe(
       (users) => {
-        console.log('Fetched users:', users); // Check the structure of users
+        console.log('Fetched users:', users);
         this.users = users;
       },
       (error) => {

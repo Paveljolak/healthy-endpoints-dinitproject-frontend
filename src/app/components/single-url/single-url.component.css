@@ -4,7 +4,7 @@
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  gap: 20px; /* Space between containers */
+  gap: 20px;
 }
 
 .details-container,
@@ -18,21 +18,21 @@
   background-color: #eff1f2;
   border: 1px solid #ddd;
   box-sizing: border-box;
-  width: 100%; /* Ensure the section takes full width of its container */
-  position: relative; /* For positioning header container */
+  width: 100%;
+  position: relative;
 }
 
 .header-container {
-  background-color: #004ea8; /* Header background color */
-  color: #fff; /* White text color */
-  padding: 10px 20px; /* Padding around the header text */
-  width: 100%; /* Ensure it spans full width */
-  box-sizing: border-box; /* Include padding in width calculation */
-  position: absolute; /* Position header container absolutely */
-  top: 0; /* Align to the top of its parent */
-  left: 0; /* Align to the left of its parent */
-  right: 0; /* Align to the right of its parent */
-  z-index: 1; /* Ensure header is above other content */
+  background-color: #004ea8;
+  color: #fff;
+  padding: 10px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
 }
 
 .header-container h2 {
@@ -41,16 +41,16 @@
 }
 
 .content-container {
-  padding: 5px; /* Add padding inside the section */
-  padding-top: 50px; /* Ensure there is enough space for the header */
+  padding: 5px;
+  padding-top: 50px;
 }
 
 .details-content p,
 .history-text p {
   margin: 10px 0;
-  overflow: hidden; /* Hide overflow text */
-  text-overflow: ellipsis; /* Add ellipsis if text overflows */
-  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .details-content a {
@@ -67,29 +67,29 @@
 
 .status-indicator {
   display: inline-block;
-  width: 20px; /* Width of the circle */
-  height: 20px; /* Height of the circle */
-  border-radius: 50%; /* Makes the element a circle */
-  text-align: center; /* Center text inside the circle */
-  line-height: 20px; /* Vertically center text inside the circle */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
   font-weight: bold;
-  margin-left: 5px; /* Space between circle and text */
-  vertical-align: middle; /* Align with text */
+  margin-left: 5px;
+  vertical-align: middle;
 }
 
 .healthy {
-  background-color: #28a745; /* Green for healthy */
+  background-color: #28a745;
 }
 
 .unhealthy {
-  background-color: #dc3545; /* Red for unhealthy */
+  background-color: #dc3545;
 }
 
 .history-section {
-  min-width: 250px; /* Ensure some minimum width for proper display */
-  max-width: 300px; /* Set max width for history section */
-  margin: 0 auto; /* Center the history section horizontally */
-  overflow: hidden; /* Hide overflow content */
+  min-width: 250px;
+  max-width: 300px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .history-log {
@@ -98,13 +98,13 @@
 }
 
 .history-log:first-of-type {
-  border-top: none; /* No border for the first log */
+  border-top: none;
 }
 
 .history-content {
   display: flex;
-  flex-direction: column; /* Stack items vertically */
-  align-items: flex-start; /* Align items to the start */
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .status-wrapper {
@@ -117,17 +117,17 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  margin-left: 5px; /* Space between circle and text */
-  vertical-align: middle; /* Align with text */
+  margin-left: 5px;
+  vertical-align: middle;
   margin-bottom: 2px;
 }
 
 .healthy-circle {
-  background-color: #28a745; /* Green for healthy */
+  background-color: #28a745;
 }
 
 .unhealthy-circle {
-  background-color: #dc3545; /* Red for unhealthy */
+  background-color: #dc3545;
 }
 
 .date-wrapper {
@@ -138,11 +138,11 @@
 .no-history {
   text-align: center;
   font-size: 1.2em;
-  color: #6c757d; /* Gray for no history message */
+  color: #6c757d;
 }
 
 .loading {
   text-align: center;
   font-size: 1.2em;
-  color: #6c757d; /* Gray for loading state */
+  color: #6c757d;
 }

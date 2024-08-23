@@ -30,14 +30,14 @@ export class EditUserModalComponent implements OnChanges {
   @Output() userUpdated = new EventEmitter<User>();
 
   userForm: FormGroup;
-  roles = ['ADMIN,USER', 'USER']; // Example roles
+  roles = ['ADMIN,USER', 'USER'];
 
   constructor(private fb: FormBuilder, private userService: UserService) {
     this.userForm = this.fb.group({
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      role: ['', Validators.required], // Ensure role is required
-      enabled: [true], // Default to true if not specified
+      role: ['', Validators.required],
+      enabled: [true],
       verificationCode: [''],
     });
   }

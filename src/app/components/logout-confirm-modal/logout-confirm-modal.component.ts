@@ -4,7 +4,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   selector: 'app-logout-confirm-modal',
   templateUrl: './logout-confirm-modal.component.html',
   styleUrls: ['./logout-confirm-modal.component.css'],
-  standalone: true, // Ensure this is set to true
+  standalone: true,
 })
 export class LogoutConfirmModalComponent {
   @Output() confirm = new EventEmitter<void>();

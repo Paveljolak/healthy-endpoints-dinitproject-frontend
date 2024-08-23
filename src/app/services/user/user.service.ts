@@ -13,7 +13,7 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   private getAuthHeaders(): HttpHeaders {
-    const authData = sessionStorage.getItem('authdata'); // Base64 credentials from sessionStorage
+    const authData = sessionStorage.getItem('authdata');
 
     return new HttpHeaders({
       Authorization: authData ? `Basic ${authData}` : '',
@@ -70,7 +70,7 @@ export class UserService {
   }
 
   getCurrentUser(): Observable<User> {
-    const userId = sessionStorage.getItem('id'); // userId might be null
+    const userId = sessionStorage.getItem('id');
     if (userId === null) {
       return throwError(() => new Error('User ID not found'));
     }

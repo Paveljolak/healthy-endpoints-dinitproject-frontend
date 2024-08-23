@@ -15,11 +15,11 @@
 
 .modal-content {
   background: #fff;
-  border: 1px solid #ddd; /* Added border for consistency */
-  width: 400px; /* Same width as edit modal */
+  border: 1px solid #ddd;
+  width: 400px;
   max-width: 90%;
   padding: 20px;
-  box-sizing: border-box; /* Ensure padding is included in width */
+  box-sizing: border-box;
 }
 
 h2 {
@@ -45,10 +45,10 @@ h2 {
 
 .form-control {
   width: 100%;
-  padding: 6px; /* Reduced padding for a shorter input field */
+  padding: 6px;
   border: 1px solid #ddd;
-  font-size: 14px; /* Match font size with edit modal */
-  box-sizing: border-box; /* Ensure padding is included in width */
+  font-size: 14px;
+  box-sizing: border-box;
 }
 
 .error-message {
@@ -60,37 +60,37 @@ h2 {
 .modal-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px; /* Match gap with edit modal */
+  gap: 10px;
   margin-top: 20px;
 }
 
 /* Button styling */
 .btn {
-  padding: 10px 20px; /* Consistent size with edit modal buttons */
+  padding: 10px 20px;
   border: none;
   color: #fff;
-  background-color: #004ea8; /* Set color to match edit modal */
+  background-color: #004ea8;
   cursor: pointer;
-  font-size: 14px; /* Consistent font size */
-  font-weight: bold; /* Bold text */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 /* Button hover effect */
 .btn:hover {
-  background-color: #1182cf; /* Light blue on hover */
+  background-color: #1182cf;
 }
 
 /* Specific button classes */
 .btn-primary {
-  background-color: #004ea8; /* Ensure primary button has the same color */
+  background-color: #004ea8;
 }
 
 .btn-secondary {
-  background-color: #004ea8; /* Ensure secondary button matches primary button */
+  background-color: #004ea8;
 }
 
 .btn-primary:hover,
 .btn-secondary:hover {
-  background-color: #1182cf; /* Light blue on hover for both buttons */
+  background-color: #1182cf;
 }

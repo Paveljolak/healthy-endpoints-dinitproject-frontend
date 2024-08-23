@@ -1,55 +1,55 @@
 /* Styles for table container and scrolling */
 .table-container {
-  width: 100%; /* Full width */
-  overflow-x: auto; /* Allow horizontal scrolling if needed */
-  margin: 0; /* Remove margin */
-  padding: 0; /* Remove padding */
-  box-sizing: border-box; /* Ensure padding and border are included in width */
+  width: 100%;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .header-container {
-  display: flex; /* Flex container to align the button */
-  justify-content: flex-end; /* Align button to the right */
-  padding: 10px 0; /* Space above and below the button */
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 0;
 }
 
 .add-button {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
-  background-color: #004ea8; /* Match header color */
-  color: #ffffff; /* Text color */
-  padding: 5px 10px; /* Adjust padding for smaller size */
-  display: inline-flex; /* Align icon and text */
-  align-items: center; /* Vertically center the icon and text */
+  background-color: #004ea8;
+  color: #ffffff;
+  padding: 5px 10px;
+  display: inline-flex;
+  align-items: center;
   border: none;
   font-weight: bold;
 }
 
 .add-button:hover {
-  background-color: #1182cf; /* Slightly darker shade on hover */
+  background-color: #1182cf;
 }
 
 .add-button img {
-  width: 16px; /* Size of the icon */
+  width: 16px;
   height: 16px;
-  margin-right: 5px; /* Space between icon and text */
+  margin-right: 5px;
 }
 
 /* Styles for table and buttons */
 .scroll-container {
-  max-height: calc(100vh - 275px); /* Adjust based on your layout */
-  overflow-y: auto; /* Enable vertical scrolling */
-  margin-bottom: 20px; /* Space between container and footer */
-  width: 100%; /* Full width */
+  max-height: calc(100vh - 275px);
+  overflow-y: auto;
+  margin-bottom: 20px;
+  width: 100%;
   border-bottom: 2px solid #ddd;
 }
 
 .url-table {
-  width: 100%; /* Full width */
-  border-collapse: collapse; /* Ensure borders are merged */
+  width: 100%;
+  border-collapse: collapse;
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  table-layout: fixed; /* Fixed layout to maintain uniform column widths */
+  table-layout: fixed;
 }
 
 .url-table th,
@@ -57,15 +57,15 @@
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
-  vertical-align: middle; /* Align content vertically in the middle */
-  white-space: nowrap; /* Prevent text from wrapping to the next line */
-  overflow: hidden; /* Hide overflow of content */
-  text-overflow: ellipsis; /* Show ellipsis for clipped content */
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .url-table th {
-  background-color: #004ea8; /* Match header color */
-  color: #ffffff; /* Text color */
+  background-color: #004ea8;
+  color: #ffffff;
   font-weight: bold;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .url-table tbody tr:hover {
-  background-color: #e9ecef; /* Highlight on hover */
+  background-color: #e9ecef;
 }
 
 .url-table td a {
@@ -92,10 +92,10 @@
   border: none;
   padding: 0;
   cursor: pointer;
-  margin: 0 5px; /* Margin between buttons */
+  margin: 0 5px;
 }
 
 .url-table .btn img {
-  width: 24px; /* Size of the icon */
+  width: 24px;
   height: 24px;
 }

@@ -1,12 +1,12 @@
 /* Container for the logo */
 .logo-container {
-  text-align: center; /* Center the logo */
-  margin-bottom: 0; /* Remove space below the logo */
+  text-align: center;
+  margin-bottom: 0;
 }
 
 .logo {
   max-width: auto;
-  max-height: 60px; /* Adjust the size of the logo */
+  max-height: 60px;
 }
 
 /* General container styling */
@@ -14,19 +14,19 @@
   max-width: 400px;
   margin: 50px auto;
   padding: 10px;
-  border-radius: 0; /* Remove border radius for consistency */
-  background: #fff; /* White background */
-  border: 1px solid #ddd; /* Border for consistency */
-  box-sizing: border-box; /* Ensure padding is included in width */
+  border-radius: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
 }
 
 /* Heading styling */
 .registration-container h1 {
   text-align: center;
-  margin-top: 0; /* Remove space above the header */
-  margin-bottom: 20px; /* Add some space below the header */
+  margin-top: 0;
+  margin-bottom: 20px;
   font-size: 24px;
-  color: #000000; /* Black color */
+  color: #000000;
 }
 
 /* Form styling */
@@ -36,7 +36,7 @@
 }
 
 .form-group {
-  margin-bottom: 15px; /* Consistent margin for form groups */
+  margin-bottom: 15px;
 }
 
 .form-group label {
@@ -47,59 +47,55 @@
 
 .form-group input {
   width: 100%;
-  padding: 6px; /* Consistent padding for input fields */
+  padding: 6px;
   border: 1px solid #ddd;
-  border-radius: 0; /* Remove border radius for consistency */
-  font-size: 14px; /* Consistent font size */
-  box-sizing: border-box; /* Ensure padding is included in width */
+  border-radius: 0;
+  font-size: 14px;
+  box-sizing: border-box;
 }
 
 .form-group input:focus {
-  border-color: #004ea8; /* Blue border on focus */
-  box-shadow: 0 0 5px rgba(0, 78, 168, 0.3); /* Light blue shadow */
+  border-color: #004ea8;
+  box-shadow: 0 0 5px rgba(0, 78, 168, 0.3);
   outline: none;
 }
 
 .error-message {
-  color: #f00; /* Red for error messages */
+  color: #f00;
   font-size: 12px;
   margin-top: 5px;
 }
 
 button {
-  padding: 8px 12px; /* Smaller padding for a smaller button */
-  background-color: #004ea8; /* Blue color */
+  padding: 8px 12px;
+  background-color: #004ea8;
   border: none;
-  border-radius: 0; /* Remove border radius for consistency */
+  border-radius: 0;
   color: #fff;
-  font-size: 14px; /* Consistent font size */
+  font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth transition */
+  transition: background-color 0.3s ease;
 }
 
-/* Button hover effect */
 button:not(:disabled):hover {
-  background-color: #1182cf; /* Light blue on hover */
+  background-color: #1182cf;
 }
 
-/* Disabled button styling */
 button:disabled {
-  background-color: #62737e; /* Gray background for disabled state */
+  background-color: #62737e;
   cursor: not-allowed;
 }
 
-/* Input error styling */
 input.invalid {
-  border-color: #f00; /* Red border for invalid inputs */
+  border-color: #f00;
 }
 
-/* Align button to the right side */
 .registration-container .registration-form {
-  align-items: flex-end; /* Align items to the end of the container */
+  align-items: flex-end;
 }
 
 button {
-  align-self: flex-end; /* Align the button to the right */
+  align-self: flex-end;
 }
 
 /* General Body Styling */

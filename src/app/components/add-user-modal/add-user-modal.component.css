@@ -19,10 +19,10 @@
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   z-index: 1001;
-  width: 400px; /* Consistent width with other modals */
+  width: 400px;
   max-width: 90%;
-  box-sizing: border-box; /* Ensure padding is included in width */
-  border: 1px solid #ddd; /* Added border for consistency */
+  box-sizing: border-box;
+  border: 1px solid #ddd;
 }
 
 .modal h2 {
@@ -33,62 +33,62 @@
 
 .modal label {
   display: block;
-  margin-bottom: 5px; /* Reduced margin between label and input field */
+  margin-bottom: 5px;
   font-weight: bold;
 }
 
 .modal input,
 .modal select {
-  width: calc(100% - 12px); /* Adjust width for consistent padding */
-  padding: 6px; /* Padding for the input fields */
+  width: calc(100% - 12px);
+  padding: 6px;
   border: 1px solid #ddd;
-  font-size: 14px; /* Consistent font size */
-  box-sizing: border-box; /* Ensure padding is included in width */
-  border-radius: 0; /* Remove border radius */
+  font-size: 14px;
+  box-sizing: border-box;
+  border-radius: 0;
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px; /* Consistent gap with other modals */
+  gap: 10px;
   margin-top: 20px;
 }
 
 /* Button styling */
 .btn {
-  padding: 10px 15px; /* Consistent padding with other modals */
+  padding: 10px 15px;
   border: none;
   color: #fff;
-  background-color: #004ea8; /* Blue color */
+  background-color: #004ea8;
   cursor: pointer;
-  font-size: 14px; /* Consistent font size */
-  font-weight: bold; /* Bold text */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-  border-radius: 0; /* Remove border radius */
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  border-radius: 0;
 }
 
 /* Button hover effect */
 .btn:hover {
-  background-color: #1182cf; /* Light blue on hover */
+  background-color: #1182cf;
 }
 
 /* Secondary button styling */
 .btn-secondary {
-  background-color: #004ea8; /* Same color as primary */
+  background-color: #004ea8;
 }
 
 .btn-secondary:hover {
-  background-color: #1182cf; /* Light blue on hover */
+  background-color: #1182cf;
 }
 
 /* Error message styling */
 .error-message {
-  color: #f00; /* Red color for error messages */
+  color: #f00;
   font-size: 12px;
   margin-top: 5px;
 }
 
 /* Input error styling */
 .invalid {
-  border-color: #f00; /* Red border for invalid inputs */
+  border-color: #f00;
 }

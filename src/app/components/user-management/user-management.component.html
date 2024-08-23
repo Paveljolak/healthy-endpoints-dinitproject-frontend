@@ -5,7 +5,6 @@
     </button>
   </div>
 
-  <!-- Container for the table with vertical scrolling -->
   <div class="scroll-container">
     <table class="url-table">
       <thead>
@@ -37,14 +36,12 @@
     </table>
   </div>
 
-  <!-- Add User Modal -->
   <app-add-user-modal
     *ngIf="showAddUserModal"
     (close)="closeAddUserModal()"
     (userAdded)="getAllUsers()"
   ></app-add-user-modal>
 
-  <!-- Edit User Modal -->
   <app-edit-user-modal
     *ngIf="showEditUserModal && selectedUser"
     [user]="selectedUser"

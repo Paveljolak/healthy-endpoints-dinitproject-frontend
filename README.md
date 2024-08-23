@@ -1,27 +1,38 @@
-# Dinithealthyendpoints
+# Healthy Endpoints Dinit Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.
+### Project Description:
 
-## Development server
+This repository contains the frontend part of a Spring Boot application developed for the summer camp at DInit d.o.o.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The application is designed to monitor the health of URLs. The application follows a three-tier architecture, using REST APIs and DTOs to efficiently manage data across a presentation, business logic, and data access layers.
 
-## Code scaffolding
+### Key features:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Background Health Check Service: Continuosly monitors all of the URLs at a regular intervals using a scheduled timer.
+- Health Check: Check the health of the URL. If its healthy it will return true, if its not healthy it will return false. This is done in one of two ways:
+  - Reachability check: A URL is considered healthy if it returns an HTTTP status code between 200 and 300.
+  - Status Check: If the URL returns status code between 200 and 300, the service inspects the JSON response's status property and classifies the URL as: "Healthy" when the status property indicates a healthy state, and "Unhealthy" when the status propert indicates an unhealthy state.
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Tech Stack:
 
-## Running unit tests
+- Java - Spring Boot
+- Angular
+- PostgreSQL
+- Docker
+- Azure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+### Important Links:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+GitHub repository for the backend: [Healthy Endpoints Backend](https://github.com/Paveljolak/healthy-endpoints-dinitproject)
 
-## Further help
+---
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+#### NOTE:
+
+This project is publicly shared with the permission of DInit d.o.o. However, please note that I do not have permission to share any logos or branding associated with the company.
+
+If you encounter any logos or branding in this repository, please submit an issue so I can remove it immediately, as it was not intended to be included.

@@ -15,10 +15,10 @@
 .modal-content {
   background: #fff;
   padding: 20px;
-  width: 400px; /* Consistent width with other modals */
+  width: 400px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 90%;
-  box-sizing: border-box; /* Ensure padding is included in width */
+  box-sizing: border-box;
 }
 
 h2 {
@@ -45,15 +45,15 @@ h2 {
 input[type="text"],
 input[type="email"],
 select {
-  width: calc(100% - 12px); /* Adjust width for consistent padding */
-  padding: 6px; /* Reduced padding for a shorter input field */
+  width: calc(100% - 12px);
+  padding: 6px;
   border: 1px solid #ddd;
-  font-size: 14px; /* Consistent font size */
-  box-sizing: border-box; /* Ensure padding is included in width */
+  font-size: 14px;
+  box-sizing: border-box;
 }
 
 input[type="checkbox"] {
-  margin-right: 10px; /* Add spacing for checkbox */
+  margin-right: 10px;
 }
 
 input[type="text"].invalid,
@@ -71,38 +71,38 @@ select.invalid {
 .form-actions {
   display: flex;
   justify-content: flex-end;
-  gap: 10px; /* Consistent gap with other modals */
+  gap: 10px;
   margin-top: 20px;
 }
 
 /* Button styling */
 button {
-  padding: 10px 15px; /* Consistent padding with other modals */
+  padding: 10px 15px;
   border: none;
   color: #fff;
-  background-color: #004ea8; /* Blue color */
+  background-color: #004ea8;
   cursor: pointer;
-  font-size: 14px; /* Consistent font size */
-  font-weight: bold; /* Bold text */
-  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 /* Button hover effect */
 button:hover {
-  background-color: #1182cf; /* Light blue on hover */
+  background-color: #1182cf;
 }
 
 /* Disabled button styling */
 button[disabled] {
-  background-color: #62737e; /* Gray background for disabled state */
-  cursor: not-allowed; /* Show a not-allowed cursor */
+  background-color: #62737e;
+  cursor: not-allowed;
 }
 
 /* Specific button for cancel */
 button[type="button"] {
-  background-color: #004ea8; /* Ensure type="button" has the same color */
+  background-color: #004ea8;
 }
 
 button[type="button"]:hover {
-  background-color: #1182cf; /* Light blue on hover for cancel button */
+  background-color: #1182cf;
 }

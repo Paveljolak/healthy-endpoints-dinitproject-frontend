@@ -14,22 +14,16 @@ export class UrlService {
   constructor(private http: HttpClient) {}
 
   private getAuthHeaders(): HttpHeaders {
-    const authData = sessionStorage.getItem('authdata'); // Base64 credentials from sessionStorage
+    const authData = sessionStorage.getItem('authdata');
 
     return new HttpHeaders({
       Authorization: authData ? `Basic ${authData}` : '',
     });
   }
 
-  // getAllUrls
-  //  http://localhost:8080/urls
-
   public getAllUrls(): Observable<Url[]> {
-    return this.http.get<Url[]>(`${this.apiServerUrl}`); // this probably will be just ${this.apiServerUrl}/
+    return this.http.get<Url[]>(`${this.apiServerUrl}`);
   }
-
-  // getUrl -- it is based by id
-  // http://localhost:8080/urls/10
 
   public getUrlById(id: string): Observable<Url> {
     return this.http
@@ -44,27 +38,6 @@ export class UrlService {
       );
   }
 
-  // Set up basic authentication header with the stored auth data
-  // const headers = new HttpHeaders({
-  //   Authorization: `Basic ${authData}`,
-  // });
-
-  // Perform the HTTP GET request with the headers
-
-  // public getUrlById(id: string): Observable<Url> {
-  //  return this.http.get<Url>(`${this.apiServerUrl}/${id}`);
-  // }
-
-  // Fetch a URL by ID
-
-  // addUrl
-  // http://localhost:8080/urls
-  // addUrl
-  // http://localhost:8080/register/user
-  // {
-  // "urlName": "From User 3.2",
-  //  "fullUrl": "https://facebook.com/"
-  // }
   public addUrl(url: Url): Observable<Url> {
     return this.http
       .post<Url>(`${this.apiServerUrl}`, url, {
@@ -78,13 +51,6 @@ export class UrlService {
       );
   }
 
-  // editUrl
-  // http://localhost:8080/urls/30
-  // {
-  //  "urlName": "Unreachable",
-  //  "fullUrl": "http://thislinkwillbeundreach/"
-  // }
-
   public editUrl(id: number, url: Partial<Url>): Observable<Url> {
     return this.http
       .put<Url>(`${this.apiServerUrl}/${id}`, url, {
@@ -97,8 +63,7 @@ export class UrlService {
         })
       );
   }
-  // deleteUrl -- based on id
-  // http://localhost:8080/urls/3
+
   public deleteUrl(urlId: number): Observable<void> {
     return this.http
       .delete<void>(`${this.apiServerUrl}/${urlId}`, {
@@ -112,9 +77,7 @@ export class UrlService {
       );
   }
 
-  // deleteAllUrls
-  // http://localhost:8080/urls/3
   public deleteAllUrl(): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/urls/`); // this probably will be just ${this.apiServerUrl}/ again
+    return this.http.delete<void>(`${this.apiServerUrl}/urls/`);
   }
 }

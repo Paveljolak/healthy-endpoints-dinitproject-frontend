@@ -34,7 +34,7 @@ export class EditUrlModalComponent implements OnChanges {
     this.urlForm = this.fb.group({
       urlName: ['', Validators.required],
       fullUrl: ['', [Validators.required, Validators.pattern('https?://.+')]],
-      urlHealth: [true], // Optional if you have it
+      urlHealth: [true],
     });
   }
 

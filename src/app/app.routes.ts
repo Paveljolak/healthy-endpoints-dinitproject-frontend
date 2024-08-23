@@ -43,7 +43,7 @@ export const routeConfig: Routes = [
     path: 'users',
     component: UserManagementComponent,
     canActivate: [RoleGuard],
-    data: { expectedRole: 'ADMIN' }, // Only users with USER role should access this route
+    data: { expectedRole: 'ADMIN' },
   },
   {
     path: 'health-history',
@@ -56,7 +56,7 @@ export const routeConfig: Routes = [
     path: 'health-history/:urlId',
     component: HealthHistoryDetailsComponent,
     canActivate: [RoleGuard],
-    data: { expectedRole: 'USER' }, // Adjust the role as needed
+    data: { expectedRole: 'USER' },
     title: 'Health History Details',
   },
   {
